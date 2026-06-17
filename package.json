@@ -1,0 +1,68 @@
+{
+  "name": "@ruleoak/core",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "AGPL early runtime with sandbox foundation and launch UX for governed AI workflows: policy, evidence, approval, audit, and deny-by-default boundaries.",
+  "license": "AGPL-3.0-or-later",
+  "exports": {
+    ".": {
+      "types": "./src/runtime/index.d.ts",
+      "import": "./src/runtime/index.js"
+    },
+    "./runtime": {
+      "types": "./src/runtime/index.d.ts",
+      "import": "./src/runtime/index.js"
+    },
+    "./contracts": "./src/contracts/index.ts",
+    "./sandbox": {
+      "types": "./src/sandbox/index.d.ts",
+      "import": "./src/sandbox/index.js"
+    }
+  },
+  "scripts": {
+    "inspect": "node src/cli/index.js inspect",
+    "example:consultant": "node examples/technical-consultant-demo/run.js",
+    "create:app": "node scripts/create-app.js",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && npm run test:runtime && npm run test:examples && npm run test:sandbox && npm run test:ux",
+    "llm:doctor": "node scripts/local-llm-doctor.js",
+    "llm:pull": "node scripts/local-llm-pull.js",
+    "llm:smoke": "node scripts/local-llm-smoke.js",
+    "example:consultant:llm": "node examples/technical-consultant-demo/run-local-llm.js",
+    "example:research": "node examples/research-brief-demo/run.js",
+    "example:research:llm": "node examples/research-brief-demo/run-local-llm.js",
+    "examples:list": "node scripts/list-examples.js",
+    "test:consultant": "node tests/technical-consultant-demo.test.js",
+    "test:research": "node tests/research-brief-demo.test.js",
+    "test:examples": "npm run test:consultant && npm run test:research",
+    "runtime:inspect": "node src/cli/index.js runtime-inspect",
+    "runtime:smoke": "node tests/runtime-engine.test.js",
+    "test:runtime": "node tests/runtime-engine.test.js",
+    "sandbox:inspect": "node src/cli/index.js sandbox-inspect",
+    "sandbox:demo": "node scripts/sandbox-demo.js",
+    "sandbox:smoke": "node tests/sandbox-smoke.test.js",
+    "test:sandbox": "node tests/sandbox-filesystem.test.js && node tests/sandbox-network.test.js && node tests/sandbox-command.test.js && node tests/sandbox-tool-policy.test.js && node tests/sandbox-smoke.test.js",
+    "launch": "node src/cli/roak.js launch",
+    "lauch": "node src/cli/roak.js launch",
+    "demo": "node src/cli/roak.js demo",
+    "onboard": "node src/cli/roak.js onboard",
+    "roak:init": "node src/cli/roak.js init",
+    "report:html": "node src/cli/roak.js report html",
+    "report:view": "node src/cli/roak.js report view",
+    "test:ux": "node tests/ux-cli.test.js",
+    "test:types": "npm run typecheck"
+  },
+  "dependencies": {
+    "zod": "^3.23.8",
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.5.0"
+  },
+  "bin": {
+    "roak": "src/cli/roak.js"
+  },
+  "types": "./src/runtime/index.d.ts"
+}

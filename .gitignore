@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+.DS_Store
+
+# Generated reports and copied local apps
+examples/**/out/
+apps/

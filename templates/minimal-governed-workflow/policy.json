@@ -1,0 +1,14 @@
+{
+  "allowed_actions": [
+    "evidence.read",
+    "report.export"
+  ],
+  "approval_required": [
+    "external.send",
+    "system.change"
+  ],
+  "blocked_actions": [
+    "secret.read",
+    "unapproved.execute"
+  ]
+}

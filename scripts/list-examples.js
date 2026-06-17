@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+console.log("RuleOak examples");
+console.log("----------------");
+console.log("");
+console.log("1. technical-consultant-demo");
+console.log("   Command: npm run example:consultant");
+console.log("   Shows: case analysis, evidence, recommended action, approval boundary, audit-style report");
+console.log("");
+console.log("2. research-brief-demo");
+console.log("   Command: npm run example:research");
+console.log("   Shows: non-IT evidence review, sourced claims, confidence, publication approval boundary");
+console.log("");
+console.log("Optional local LLM paths:");
+console.log("   npm run llm:doctor");
+console.log("   npm run example:consultant:llm");
+console.log("   npm run example:research:llm");
