@@ -1,84 +1,60 @@
-# Two-Minute Demo Script
+# RuleOak 60-Second Demo Script
 
-This script matches the README GIF for RuleOak Core v1.0.
+This script matches `docs/assets/demo/ruleoak-60s-governance-demo.gif`.
 
 ## Goal
 
-Show that RuleOak can be understood quickly through one guided launch path.
+Show the first-time path from install to governance result:
+
+```text
+install → launch → policy decision → evidence → approval → audit report
+```
 
 ## Script
 
-### 0:00–0:15 — Positioning
-
-Say:
-
-> RuleOak Core v1.0 is an AGPL early runtime with a deny-by-default sandbox foundation for governed AI workflows: policy, evidence, approval, and audit.
-
-Show:
+### 0-10 seconds: install
 
 ```bash
 npm install
+```
+
+Explain: RuleOak runs locally and does not require a hosted service for the demo path.
+
+### 10-20 seconds: launch
+
+```bash
 npm run launch
 ```
 
-### 0:15–0:40 — Guided launch path
+Explain: the launch command runs the guided first-user flow.
 
-Point out that `npm run launch` runs the first-user flow:
+### 20-30 seconds: policy decision
 
-- examples list;
-- consultant demo;
-- research demo;
-- sandbox demo;
-- HTML report generation;
-- next-step commands.
+Show a proposed action and the policy result:
 
-### 0:40–1:05 — Run all demos
-
-Show:
-
-```bash
-npm run demo
+```text
+proposed action: publish_report
+policy decision: approval_required
 ```
 
-Point out:
+Explain: RuleOak evaluates actions before execution.
 
-- consultant case analysis;
-- research brief workflow;
-- sandbox decisions;
-- one-page generated reports.
+### 30-40 seconds: evidence
 
-### 1:05–1:30 — View reports locally
+Show evidence attached to the recommendation.
 
-Show:
+Explain: RuleOak separates model output from evidence-backed records.
+
+### 40-50 seconds: approval
+
+Show approval required or denied.
+
+Explain: risky actions can pause for human review.
+
+### 50-60 seconds: audit report
 
 ```bash
 npm run report:view
 ```
 
-Say:
-
-> RuleOak generates local HTML reports and serves them from a local-only browser viewer.
-
-### 1:30–1:45 — Create a workflow
-
-Show:
-
-```bash
-npm run roak:init -- my-workflow --template=consultant-workflow
-```
-
-Say:
-
-> Developers can copy a template instead of starting from a blank repo.
-
-### 1:45–2:00 — Boundary
-
-Show:
-
-```bash
-npm test
-```
-
-Say:
-
-> RuleOak Core v1.0 is an early runtime foundation. It is not a finished enterprise platform or externally security-reviewed sandbox.
+Explain: the local report viewer shows run, evidence, policy, approval, and audit records.

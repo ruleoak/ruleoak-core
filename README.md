@@ -4,24 +4,32 @@
 
 # RuleOak Core v1.0
 
-**RuleOak Core is an AGPL early runtime for governed AI workflows.**
+**Policy, evidence, approval, and audit for AI workflows that need accountable action.**
 
-It helps developers build agentic workflows where important actions are checked by policy, grounded in evidence, gated by approval when needed, and recorded for audit-style review.
+RuleOak Core helps developers build AI workflows where important actions are checked before execution, grounded in evidence, paused for approval when needed, and recorded for review.
 
 ```text
-policy → evidence → approval → audit
+proposed action → policy decision → evidence → approval gate → audit report
 ```
 
-RuleOak is for builders who want AI agents to be useful without letting them act recklessly.
-
-## Start here
+## Try it in two commands
 
 ```bash
 npm install
 npm run launch
 ```
 
-The launch command runs the first-user flow: examples list, Technical Consultant demo, Research Brief demo, sandbox demo, HTML report generation, and next-step guidance.
+The launch flow runs the first-user path: examples list, governed demos, sandbox demo, HTML report generation, and next-step guidance.
+
+## 60-second demo
+
+![RuleOak 60-second governance demo](docs/assets/demo/ruleoak-60s-governance-demo.gif)
+
+The demo path shows:
+
+```text
+install → launch → policy decision → evidence → approval → audit report
+```
 
 Useful commands:
 
@@ -33,6 +41,20 @@ npm run onboard
 npm test
 ```
 
+## What RuleOak is for
+
+Use RuleOak when an agent or AI workflow needs to answer these questions clearly:
+
+| Question | RuleOak concept |
+|---|---|
+| Is this action allowed? | Policy decision |
+| What supports this recommendation? | Evidence record |
+| Does a human need to approve it? | Approval gate |
+| What happened during the run? | Audit log and report |
+| Can tool/file/network actions be bounded? | Sandbox foundation |
+
+RuleOak is useful for technical diagnosis, research workflows, review systems, operational assistants, document analysis, and other vertical AI applications where unchecked action is not acceptable.
+
 ## What v1.0 includes
 
 | Area | Included in v1.0 |
@@ -41,33 +63,25 @@ npm test
 | Sandbox foundation | Filesystem, network, command, and tool policy guards with deny-by-default behavior |
 | Demos | Technical Consultant demo and Research Brief demo |
 | Launch UX | `npm run launch`, `npm run demo`, workflow chooser, templates, one-page HTML reports, local report viewer |
+| Python bridge | `ruleoak-py v0.1.0` companion SDK for RuleOak Core v1.0-compatible governance records |
 | Local LLM readiness | Hardware check, starter Ollama model recommendation, smoke test helpers |
-| Quality signals | Tests, CI workflow, screenshots, demo GIF, threat-model docs |
+| Quality signals | Tests, CI workflow, demo GIF, threat model docs, good-first-issue list |
 
-## Two-minute demo
+## JavaScript/TypeScript and Python
 
-![RuleOak two-minute UX demo](docs/assets/demo/ruleoak-2min-demo.gif)
+RuleOak Core is the canonical runtime foundation.
 
-The GIF shows the v1.0 first-user path:
+Python builders can use the companion SDK:
 
 ```bash
-npm install
-npm run launch
-npm run demo
-npm run report:view
+cd ruleoak-py
+python -m pip install -e .
+python examples/generic_governance_example.py
 ```
 
-It covers the guided launch command, consultant demo, research demo, sandbox demo, generated one-page HTML reports, and the local browser-based report viewer.
+The Python SDK emits RuleOak Core v1.0-compatible run, evidence, approval, audit, policy decision, and report records. It is a bridge, not a fork of the runtime.
 
-A recording script is available at [docs/demo-video-script.md](docs/demo-video-script.md).
-
-## Why RuleOak exists
-
-Most agent frameworks help agents do more. RuleOak focuses on a different question:
-
-> What is the agent allowed to do, what evidence supports it, who approves it, and what record remains afterward?
-
-That makes RuleOak useful for serious workflows such as technical diagnosis, research briefs, review workflows, operational assistants, document analysis, and other vertical AI applications where uncontrolled action is not acceptable.
+Read [docs/integrations/python-sdk.md](docs/integrations/python-sdk.md).
 
 ## Runtime lifecycle
 
@@ -118,8 +132,21 @@ npm run example:research
 |---|---|
 | Technical Consultant Demo | Evidence-backed case analysis, probable cause, recommended action, approval boundary, audit-style report |
 | Research Brief Demo | Sourced claims, confidence, known unknowns, recommendation, publishing approval boundary |
+| Python Bridge Sample | Generic Python workflow emitting RuleOak-compatible governance records |
 
 Read [docs/examples-matrix.md](docs/examples-matrix.md).
+
+## How RuleOak fits with other agent tools
+
+RuleOak is not trying to replace orchestration, personal-assistant, or observability tools. It focuses on a narrower governance boundary: policy, evidence, approval, audit, and sandbox controls.
+
+Read [docs/comparisons.md](docs/comparisons.md).
+
+## Good first issues
+
+New contributors can start with small documentation, example, and developer-experience tasks.
+
+Read [docs/community/good-first-issues.md](docs/community/good-first-issues.md).
 
 ## HTML reports and local viewer
 
@@ -167,7 +194,7 @@ RuleOak Core v1.0 is not yet:
 - a hosted cloud service;
 - a finished vertical application.
 
-The current release is an early runtime foundation for learning, prototyping, and building governed workflows.
+The current release is a runtime foundation for learning, prototyping, and building governed workflows.
 
 ## Documentation
 
@@ -176,6 +203,9 @@ The current release is an early runtime foundation for learning, prototyping, an
 | Quickstart | [docs/quickstart.md](docs/quickstart.md) |
 | Runtime lifecycle | [docs/runtime-lifecycle.md](docs/runtime-lifecycle.md) |
 | Sandbox foundation | [docs/sandbox-foundation.md](docs/sandbox-foundation.md) |
+| Python SDK bridge | [docs/integrations/python-sdk.md](docs/integrations/python-sdk.md) |
+| Comparison with other tools | [docs/comparisons.md](docs/comparisons.md) |
+| Good first issues | [docs/community/good-first-issues.md](docs/community/good-first-issues.md) |
 | Threat model | [docs/security/threat-model.md](docs/security/threat-model.md) |
 | Build a vertical workflow | [docs/build-a-vertical.md](docs/build-a-vertical.md) |
 | Local LLM readiness | [docs/local-llm.md](docs/local-llm.md) |

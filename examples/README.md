@@ -29,3 +29,7 @@ npm run example:research
 ```
 
 Shows a non-IT workflow: sourced claims, confidence, known unknowns, recommendation, approval boundary, and audit-style research output.
+
+## Python bridge example
+
+`python-bridge/` shows how a Python application can use the companion `ruleoak-py` SDK to emit RuleOak Core v1.0-compatible governance records. The example is generic and local-first.

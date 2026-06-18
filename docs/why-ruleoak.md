@@ -42,7 +42,7 @@ This first public release is intentionally small, but it includes the key shape 
    Use `npm run create:app -- my-consultant-app` to create a local app from the demo.
 
 5. **Vertical-ready structure**  
-   The same core pattern can support technical consulting, research, photo intelligence, music library workflows, document review, compliance workflows, and other vertical apps.
+   The same core pattern can support technical consulting, research, knowledge workflows, document review, compliance workflows, and other vertical apps.
 
 ## Competitive angle
 
