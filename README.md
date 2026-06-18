@@ -30,6 +30,11 @@ The demo shows three tool calls:
 
 Read [docs/integrations/govern-ai-tool-call-in-10-minutes.md](docs/integrations/govern-ai-tool-call-in-10-minutes.md).
 
+
+## v2.0.2 report HTML hotfix
+
+RuleOak Core v2.0.2 restores the packaged HTML report renderer used by `npm run report:html`, `npm run report:view`, and `npm run viewer:build`. It keeps the v2.0.1 polish release behavior and fixes a missing `src/reports/html-report.js` module in the previous package.
+
 ## v2.0.1 polish release
 
 RuleOak Core v2.0.1 improves the public developer path:

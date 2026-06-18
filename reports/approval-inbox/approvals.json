@@ -1,0 +1,377 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-06-18T14:29:23.629Z",
+  "requests": [
+    {
+      "id": "restart.service-approval-1",
+      "action": "restart.service",
+      "subject": null,
+      "actor": "agent",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "unknown",
+      "evidenceId": null,
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/technical-consultant-demo/out/case-report.json",
+      "createdAt": "2026-06-18T14:29:14.829Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {}
+    },
+    {
+      "id": "brief.publish-approval-1",
+      "action": "brief.publish",
+      "subject": null,
+      "actor": "agent",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "unknown",
+      "evidenceId": null,
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/research-brief-demo/out/research-brief-report.json",
+      "createdAt": "2026-06-18T14:29:15.504Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {}
+    },
+    {
+      "id": "send_external_message-approval-1",
+      "action": "send_external_message",
+      "subject": "external_message",
+      "actor": "demo-agent",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "medium",
+      "evidenceId": "tool-e87e1c4f-c3d0-4f6a-bbe5-081cc9f296a5-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/mcp-guard-demo/out/mcp-guard-report.json",
+      "createdAt": "2026-06-18T14:29:23.625Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "requestId": "tool-e87e1c4f-c3d0-4f6a-bbe5-081cc9f296a5",
+          "runId": "ruleoak-mcp-guard-demo",
+          "toolId": "send_external_message",
+          "tool": {
+            "id": "send_external_message",
+            "name": "send_external_message",
+            "description": "Send a message outside the local workspace",
+            "kind": "mcp_tool",
+            "risk": "auto",
+            "capabilities": [],
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "recipient": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                }
+              }
+            },
+            "metadata": {
+              "mcp": true,
+              "server": "generic-workflow-mcp",
+              "serverVersion": "0.1.0",
+              "annotations": {}
+            }
+          },
+          "subject": "external_message",
+          "actor": "demo-agent",
+          "risk": "medium",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "evidenceId": "tool-e87e1c4f-c3d0-4f6a-bbe5-081cc9f296a5-evidence",
+          "approvalRequestId": "send_external_message-approval-1",
+          "metadata": {
+            "requestId": 2,
+            "jsonrpc": "2.0",
+            "originalMethod": "tools/call",
+            "mcp": true,
+            "method": "tools/call",
+            "argumentKeys": [
+              "recipient",
+              "body"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "github.comment_issue-approval-1",
+      "action": "github.comment_issue",
+      "subject": "github://ruleoak/ruleoak-core/issues/12",
+      "actor": "agent",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "unknown",
+      "evidenceId": "wi-github_write-564a779d56ab12aa-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/write-connectors-demo/out/write-connectors-report.json",
+      "createdAt": "2026-06-18T14:29:23.628Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "intentId": "wi-github_write-564a779d56ab12aa",
+          "runId": "ruleoak-write-connectors-demo",
+          "connector": "github_write",
+          "action": "github.comment_issue",
+          "target": "github://ruleoak/ruleoak-core/issues/12",
+          "actor": "agent",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "approvalRequestId": "github.comment_issue-approval-1",
+          "evidenceId": "wi-github_write-564a779d56ab12aa-evidence",
+          "dryRun": true
+        }
+      }
+    },
+    {
+      "id": "jira.add_comment-approval-2",
+      "action": "jira.add_comment",
+      "subject": "jira://PLAT-101",
+      "actor": "agent",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "unknown",
+      "evidenceId": "wi-jira_write-967dfe1e710b2b5e-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/write-connectors-demo/out/write-connectors-report.json",
+      "createdAt": "2026-06-18T14:29:23.628Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "intentId": "wi-jira_write-967dfe1e710b2b5e",
+          "runId": "ruleoak-write-connectors-demo",
+          "connector": "jira_write",
+          "action": "jira.add_comment",
+          "target": "jira://PLAT-101",
+          "actor": "agent",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "approvalRequestId": "jira.add_comment-approval-2",
+          "evidenceId": "wi-jira_write-967dfe1e710b2b5e-evidence",
+          "dryRun": true
+        }
+      }
+    },
+    {
+      "id": "jira.transition_ticket-approval-3",
+      "action": "jira.transition_ticket",
+      "subject": "jira://PLAT-102",
+      "actor": "agent",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "unknown",
+      "evidenceId": "wi-jira_write-198496be6bf0d3ab-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/write-connectors-demo/out/write-connectors-report.json",
+      "createdAt": "2026-06-18T14:29:23.628Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "intentId": "wi-jira_write-198496be6bf0d3ab",
+          "runId": "ruleoak-write-connectors-demo",
+          "connector": "jira_write",
+          "action": "jira.transition_ticket",
+          "target": "jira://PLAT-102",
+          "actor": "agent",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "approvalRequestId": "jira.transition_ticket-approval-3",
+          "evidenceId": "wi-jira_write-198496be6bf0d3ab-evidence",
+          "dryRun": true
+        }
+      }
+    },
+    {
+      "id": "write_workspace_file-approval-1",
+      "action": "write_workspace_file",
+      "subject": "local draft",
+      "actor": "policy-pack-demo",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "medium",
+      "evidenceId": "tool-b4fb50b2-ff67-4f1c-a8e8-6730a1be000d-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/policy-packs-demo/out/policy-packs-report.json",
+      "createdAt": "2026-06-18T14:29:23.629Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "requestId": "tool-b4fb50b2-ff67-4f1c-a8e8-6730a1be000d",
+          "runId": "roak-tool-run-1781792962704",
+          "toolId": "write_workspace_file",
+          "tool": {
+            "id": "write_workspace_file",
+            "name": "Write workspace file",
+            "description": "",
+            "kind": "write",
+            "risk": "medium",
+            "capabilities": [],
+            "inputSchema": null,
+            "metadata": {}
+          },
+          "subject": "local draft",
+          "actor": "policy-pack-demo",
+          "risk": "medium",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "evidenceId": "tool-b4fb50b2-ff67-4f1c-a8e8-6730a1be000d-evidence",
+          "approvalRequestId": "write_workspace_file-approval-1",
+          "metadata": {}
+        }
+      }
+    },
+    {
+      "id": "send_external_message-approval-2",
+      "action": "send_external_message",
+      "subject": "customer update",
+      "actor": "policy-pack-demo",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "high",
+      "evidenceId": "tool-3ce2e0c5-c437-4fde-a862-c30569e15f5b-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/policy-packs-demo/out/policy-packs-report.json",
+      "createdAt": "2026-06-18T14:29:23.629Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "requestId": "tool-3ce2e0c5-c437-4fde-a862-c30569e15f5b",
+          "runId": "roak-tool-run-1781792962704",
+          "toolId": "send_external_message",
+          "tool": {
+            "id": "send_external_message",
+            "name": "Send external message",
+            "description": "",
+            "kind": "external_write",
+            "risk": "high",
+            "capabilities": [],
+            "inputSchema": null,
+            "metadata": {}
+          },
+          "subject": "customer update",
+          "actor": "policy-pack-demo",
+          "risk": "high",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "evidenceId": "tool-3ce2e0c5-c437-4fde-a862-c30569e15f5b-evidence",
+          "approvalRequestId": "send_external_message-approval-2",
+          "metadata": {}
+        }
+      }
+    },
+    {
+      "id": "comment_ticket-approval-3",
+      "action": "comment_ticket",
+      "subject": "TICKET-123",
+      "actor": "policy-pack-demo",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "high",
+      "evidenceId": "tool-2dc7cc4c-7f95-4287-88e6-71b1797a8b90-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/policy-packs-demo/out/policy-packs-report.json",
+      "createdAt": "2026-06-18T14:29:23.629Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "requestId": "tool-2dc7cc4c-7f95-4287-88e6-71b1797a8b90",
+          "runId": "roak-tool-run-1781792962704",
+          "toolId": "comment_ticket",
+          "tool": {
+            "id": "comment_ticket",
+            "name": "Comment ticket",
+            "description": "",
+            "kind": "ticketing_write",
+            "risk": "high",
+            "capabilities": [],
+            "inputSchema": null,
+            "metadata": {}
+          },
+          "subject": "TICKET-123",
+          "actor": "policy-pack-demo",
+          "risk": "high",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "evidenceId": "tool-2dc7cc4c-7f95-4287-88e6-71b1797a8b90-evidence",
+          "approvalRequestId": "comment_ticket-approval-3",
+          "metadata": {}
+        }
+      }
+    },
+    {
+      "id": "cloud_llm_generate-approval-4",
+      "action": "cloud_llm_generate",
+      "subject": "redacted prompt",
+      "actor": "policy-pack-demo",
+      "reason": "requires approval",
+      "status": "pending",
+      "risk": "high",
+      "evidenceId": "tool-c6e2ce00-231c-4890-8b67-9db595a75642-evidence",
+      "reportSource": "/mnt/data/fix_ruleoak/ruleoak-core-v2.0.1-polish/examples/policy-packs-demo/out/policy-packs-report.json",
+      "createdAt": "2026-06-18T14:29:23.629Z",
+      "decidedAt": null,
+      "decidedBy": null,
+      "decisionReason": null,
+      "metadata": {
+        "decision": {
+          "requestId": "tool-c6e2ce00-231c-4890-8b67-9db595a75642",
+          "runId": "roak-tool-run-1781792962704",
+          "toolId": "cloud_llm_generate",
+          "tool": {
+            "id": "cloud_llm_generate",
+            "name": "Cloud LLM generate",
+            "description": "",
+            "kind": "llm_cloud",
+            "risk": "high",
+            "capabilities": [],
+            "inputSchema": null,
+            "metadata": {}
+          },
+          "subject": "redacted prompt",
+          "actor": "policy-pack-demo",
+          "risk": "high",
+          "decision": "approval_required",
+          "allowedNow": false,
+          "approvalRequired": true,
+          "blocked": false,
+          "reason": "requires approval",
+          "evidenceId": "tool-c6e2ce00-231c-4890-8b67-9db595a75642-evidence",
+          "approvalRequestId": "cloud_llm_generate-approval-4",
+          "metadata": {}
+        }
+      }
+    }
+  ]
+}
