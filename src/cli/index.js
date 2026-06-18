@@ -30,7 +30,7 @@ if (args[0] === 'inspect') {
   console.log(JSON.stringify({
     name: 'RuleOak Core',
     version: '2.0.3',
-    stage: 'v2.0.3 hotfix: robust TypeScript typecheck + report HTML generator restored',
+    stage: 'v2.0.3: governed AI tool calls + protocol v1 + MCP guard + policy packs + approval inbox',
     boundary: 'AGPL open core for governed AI workflows',
     includes: ['runtime modules', 'sandbox foundation', 'contracts', 'schemas', 'copyable examples', 'local LLM readiness', 'tests', 'CI', 'launch UX', 'Tool Guard', 'MCP Guard Proxy', 'connectors', 'policy packs', 'local approval inbox', 'report viewer', 'telemetry export', 'Governance Protocol v1', '10-minute integration guide', 'adapter samples'],
     excludes: ['mature enterprise runtime', 'security-reviewed sandbox', 'certified compliance product', 'hosted cloud service', 'finished hosted products']

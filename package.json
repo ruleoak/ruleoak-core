@@ -3,7 +3,7 @@
   "version": "2.0.3",
   "private": false,
   "type": "module",
-  "description": "AGPL governance layer for AI tool calls with policy checks, evidence records, approval gates, audit reports, protocol conformance, adapters, MCP Guard, policy packs, and local approval inbox.",
+  "description": "Policy, approval, evidence, and audit for AI tool calls.",
   "license": "AGPL-3.0-or-later",
   "exports": {
     ".": {

@@ -4,15 +4,26 @@
 
 # RuleOak Core
 
-> **Policy, approval, evidence, and audit for AI tool calls.**
+> **Policy, approval, evidence, and audit for AI tool calls**
 >
-> RuleOak wraps proposed agent actions before execution so developers can decide: allow, require approval, or block.
+> RuleOak wraps agent actions before they execute, so your application can decide whether to **allow**, **deny**, or **require human approval** — with evidence and audit records captured automatically.
 
 ```text
-proposed tool call -> policy decision -> evidence record -> approval gate -> audit report
+AI proposes a tool call
+→ RuleOak checks policy
+→ RuleOak records evidence
+→ RuleOak gates risky actions
+→ RuleOak writes an audit trail
+→ RuleOak generates a report
 ```
 
-## Quickstart: govern a tool call in 10 minutes
+RuleOak Core v2.0.3 is an AGPL, local-first governance layer for developers building AI agents, local LLM workflows, MCP-style tools, and vertical AI applications where unchecked tool use is not acceptable.
+
+[Website](https://ruleoak.com) · [10-minute guide](docs/integrations/govern-ai-tool-call-in-10-minutes.md) · [Governance protocol](docs/protocol/governance-records-v1.md) · [Security boundary](SECURITY.md)
+
+---
+
+## Start here
 
 ```bash
 npm install
@@ -20,430 +31,312 @@ npm run integrate:10min
 npm run report:html
 ```
 
-The demo shows three tool calls:
+The 10-minute demo shows the core RuleOak pattern:
 
-| Tool call | Decision | Why |
+| Proposed tool call | Decision | Why |
 |---|---|---|
-| `search_docs` | allow | read-only local evidence action |
+| `search_docs` | allowed | read-only local evidence action |
 | `send_external_message` | approval required | external communication needs review |
-| `delete_workspace_file` | block | destructive local action |
+| `delete_workspace_file` | denied | destructive local action is blocked |
 
-Read [docs/integrations/govern-ai-tool-call-in-10-minutes.md](docs/integrations/govern-ai-tool-call-in-10-minutes.md).
+Then open the generated reports under:
 
-
-## v2.0.2 report HTML hotfix
-
-RuleOak Core v2.0.3 restores the packaged HTML report renderer used by `npm run report:html`, `npm run report:view`, and `npm run viewer:build`. It keeps the v2.0.1 polish release behavior and fixes a missing `src/reports/html-report.js` module in the previous package.
-
-## v2.0.1 polish release
-
-RuleOak Core v2.0.1 improves the public developer path:
-
-- clearer first-screen positioning around governed AI tool calls
-- a 10-minute integration guide
-- Protocol v1 compatibility statement
-- Python SDK compatibility note
-- approval inbox UX guidance
-- updated demo asset for tool call -> policy -> approval -> audit
-
-## v2.0: report viewer and telemetry export
-
-RuleOak Core v2.0 adds a stronger local report-viewer path and OpenTelemetry-style local export for governance events.
-
-```bash
-npm run demo
-npm run viewer:build
-npm run telemetry:export
-npm run report:view
+```text
+reports/html/
 ```
 
-The telemetry export writes local JSON/JSONL files only. It does not send telemetry to a backend.
-
-## v2.0: approval-gated write connectors
-
-RuleOak Core v2.0 adds a conservative write-connector pattern. Agents can propose write intents, but external-style writes are policy-checked, evidence-backed, approval-gated, and recorded to a local dry-run outbox.
+For the guided first-run path:
 
 ```bash
-npm run write:demo
-npm run report:html
-```
-
-The included GitHub-style and Jira-style write connectors do not call external services. They demonstrate the governance lifecycle before any real connector is added.
-
-## Try it in two commands
-
-```bash
-npm install
 npm run launch
 ```
 
-The launch flow runs the first-user path: examples list, governed demos, sandbox demo, HTML report generation, and next-step guidance.
+---
 
-## 60-second demo
+## Why developers use RuleOak
+
+AI agents are becoming useful because they can call tools. That is also where risk starts.
+
+RuleOak helps developers add governance without redesigning the whole application:
+
+| Developer need | RuleOak provides |
+|---|---|
+| Add governance around existing tool calls | Tool Guard and adapter patterns |
+| Keep policy outside prompts | policy packs and explicit decision records |
+| Stop dangerous actions by default | deny / approval-required / allow decisions |
+| Keep humans accountable | local approval inbox |
+| Explain why an action was allowed or blocked | evidence and policy decision records |
+| Review what happened later | audit logs, HTML reports, report catalog |
+| Stay local-first | local files, local reports, no required cloud service |
+| Prepare for serious workflows | protocol, conformance tests, security boundary docs |
+
+RuleOak is not trying to replace agent frameworks. It is the governance layer around agent actions.
+
+---
+
+## What RuleOak includes
+
+| Area | Included |
+|---|---|
+| Governance runtime | runs, evidence, approvals, audit events, policy decisions, reports |
+| Tool Guard | evaluate proposed tool calls before execution |
+| MCP Guard | MCP-style tool-call evaluation and local proxy prototype |
+| Protocol | `ruleoak.governance.v1` records, schemas, golden samples, conformance tests |
+| Adapters | dependency-free LangGraph-style and CrewAI-style adapter samples |
+| Policy packs | filesystem safety, external communication, ticketing, cloud LLM approval, PII redaction |
+| Connectors | read-only evidence connector patterns and approval-gated write intents |
+| Approval UX | local, file-backed approval inbox |
+| Reports | HTML reports, report catalog, local telemetry-style export |
+| Sandbox foundation | filesystem, network, command, and tool policy guards |
+| SDK path | private-preview Python bridge guidance for RuleOak-compatible records |
+
+---
+
+## 60-second flow
 
 ![RuleOak tool-call approval audit demo](docs/assets/demo/ruleoak-tool-call-approval-audit-demo.gif)
 
-The demo path shows:
+The flow is intentionally simple:
 
 ```text
-install → launch → policy decision → evidence → approval → audit report
+tool call → policy → evidence → approval → audit → report
 ```
 
-Useful commands:
+---
+
+## Common commands
 
 ```bash
-npm run demo
-npm run sandbox:demo
+# First-run path
+npm run launch
+
+# Govern one tool call flow
+npm run integrate:10min
 npm run guard:demo
-npm run report:view
-npm run onboard
+
+# MCP-style tool governance
+npm run mcp:demo
+npm run mcp:proxy:demo
+
+# Policy packs and approvals
+npm run policy:packs:list
+npm run policy:demo
+npm run approval:inbox:build
+
+# Evidence, reports, and telemetry
+npm run connector:demo
+npm run report:html
+npm run viewer:build
+npm run telemetry:export
+
+# Protocol and quality
+npm run protocol:conformance
 npm test
 ```
 
-## What RuleOak is for
+---
 
-Use RuleOak when an agent or AI workflow needs to answer these questions clearly:
+## Where RuleOak fits
 
-| Question | RuleOak concept |
-|---|---|
-| Is this action allowed? | Policy decision |
-| What supports this recommendation? | Evidence record |
-| Does a human need to approve it? | Approval gate |
-| What happened during the run? | Audit log and report |
-| Can tool/file/network actions be bounded? | Sandbox foundation |
+RuleOak complements orchestration, agent, and observability tools.
 
-RuleOak is useful for technical diagnosis, research workflows, review systems, operational assistants, document analysis, and other vertical AI applications where unchecked action is not acceptable.
+| Tool category | Typical focus | RuleOak focus |
+|---|---|---|
+| Agent orchestrators | graph flow, state, memory, routing | govern actions before execution |
+| Multi-agent frameworks | roles, crews, collaboration | policy and audit around tool calls |
+| MCP tools | expose tools to AI clients | guard MCP-style tool calls |
+| Observability tools | traces, metrics, logs | policy, evidence, approval, and audit records |
+| Application code | business workflow | reusable governance boundary |
 
+RuleOak is most useful when an AI workflow needs to answer:
 
-
-## MCP Guard Pack + read-only evidence connectors, and approval-gated write connector demos
-
-RuleOak Core v2.0 adds a local MCP Guard Pack + read-only evidence connectors, and approval-gated write connector demos for MCP-style tool requests.
-
-```bash
-npm run mcp:demo
+```text
+Was this action allowed?
+What evidence supported it?
+Did a human need to approve it?
+What exactly happened?
+Can we review the decision later?
 ```
 
-The demo evaluates three `tools/call` requests before execution:
+---
 
-- `search_docs` → allowed
-- `send_external_message` → approval required
-- `delete_workspace_file` → blocked
+## Why RuleOak is harder to replace than a policy JSON file
 
-MCP Guard is local-only. It does not run an MCP server, execute tools, or call the network. It normalizes MCP-style tool manifests and records RuleOak policy, evidence, approval, and audit decisions.
+A basic `policy.json` and `audit.jsonl` are easy to build. RuleOak’s moat is the combination:
 
+1. **Governance record protocol** — stable `ruleoak.governance.v1` record shapes
+2. **Conformance kit** — schemas, golden samples, validation commands
+3. **Tool-call guard** — allow / deny / approval-required before execution
+4. **MCP direction** — MCP Guard and proxy prototype for tool ecosystems
+5. **Adapter path** — LangGraph-style, CrewAI-style, and Python bridge patterns
+6. **Policy packs** — reusable governance defaults for common risks
+7. **Approval UX** — local approval inbox for reviewable human decisions
+8. **Audit reports** — evidence-backed reports for review and sharing
+9. **Security boundaries** — sandbox foundation, local-first design, explicit limits
+10. **Versioned compatibility** — protocol stability path for SDKs and vertical apps
 
+That combination is the product: a governance layer for AI agent actions, not a single helper function.
 
+---
 
-## Read-only Evidence Connectors
+## Governance Protocol v1
 
-RuleOak Core v2.0 adds read-only evidence connector patterns for local GitHub/Jira-style fixtures and workspace files.
+RuleOak Core v2.0.3 uses:
 
-```bash
-npm run connector:demo
+```text
+ruleoak.governance.v1
 ```
 
-The connector demo proves the enterprise integration boundary without exposing credentials or writing to external systems:
+Core record types:
 
-- collect evidence from local fixtures
-- mark records as read-only
-- generate deterministic evidence hashes
-- produce an audit-style connector report
-- avoid network and write actions
+- `RunRecord`
+- `EvidenceRecord`
+- `ApprovalRecord`
+- `AuditEvent`
+- `PolicyDecisionRecord`
+- `ReportRecord`
 
-Write connectors should come later and should be approval-gated.
-
-
-## What v2.0 includes
-
-| Area | Included in v2.0 |
-|---|---|
-| Runtime | Run manager, policy engine, evidence store, approval gate, audit log, report exporter |
-| Sandbox foundation | Filesystem, network, command, and tool policy guards with deny-by-default behavior |
-| Tool Guard | Governed tool-call decisions with allow, approval-required, and blocked outcomes |
-| Demos | Technical Consultant demo and Research Brief demo |
-| Launch UX | `npm run launch`, `npm run demo`, workflow chooser, templates, one-page HTML reports, local report viewer |
-| Python bridge | Private-preview `ruleoak-py v0.2.1` SDK guidance for RuleOak Core v2.0-compatible governance records and governed LLM calls |
-| Local LLM readiness | Hardware check, starter Ollama model recommendation, smoke test helpers |
-| Quality signals | Tests, CI workflow, demo GIF, threat model docs, feedback task list |
-
-
-## Governance Protocol v1 compatibility
-
-RuleOak Core v2.0.1 uses the protocol identifier `ruleoak.governance.v1` for core governance records. The v2.x line should keep this record protocol backward-compatible unless a breaking change is explicitly documented.
-
-Run:
+Validate protocol conformance:
 
 ```bash
 npm run protocol:conformance
 ```
 
-Read [docs/protocol/compatibility-statement.md](docs/protocol/compatibility-statement.md).
+Read:
 
-## Python SDK compatibility
+- [Governance records v1](docs/protocol/governance-records-v1.md)
+- [Compatibility statement](docs/protocol/compatibility-statement.md)
 
-The private-preview `ruleoak-py` SDK should emit records compatible with `ruleoak.governance.v1`. It remains a bridge for Python vertical apps, not a fork of RuleOak Core.
+---
 
-Read [docs/integrations/python-sdk-compatibility.md](docs/integrations/python-sdk-compatibility.md).
+## Local Approval Inbox
 
-## JavaScript/TypeScript and Python
-
-RuleOak Core is the canonical runtime foundation.
-
-Python builders can evaluate the private-preview companion SDK:
+Build a local approval inbox:
 
 ```bash
-cd ruleoak-py
-python -m pip install -e .
-python examples/media_workflow_example.py
+npm run approval:inbox:build
 ```
 
-The Python SDK emits RuleOak Core v2.0-compatible run, evidence, approval, audit, policy decision, report, and governed LLM records. It is a bridge, not a fork of the runtime. The SDK is currently private preview and should not be described as a public stable package yet.
-
-Read [docs/integrations/python-sdk.md](docs/integrations/python-sdk.md).
-
-Public release note: `ruleoak-py` is not yet a public stable SDK. It is a private-preview bridge used to validate Python vertical-app integration before final licensing and API boundaries are published.
-
-## Runtime lifecycle
-
-A RuleOak run follows a simple control path:
+Generated files:
 
 ```text
-create run
-→ start run
-→ collect evidence
-→ evaluate proposed action
-→ request approval if needed
-→ record audit events
-→ export report
+reports/approval-inbox/index.html
+reports/approval-inbox/approvals.json
 ```
 
-Inspect the runtime:
+Approve or reject local approval records:
 
 ```bash
-npm run runtime:inspect
+npm run approval:approve -- <approval-id>
+npm run approval:reject -- <approval-id>
 ```
 
-## Sandbox foundation
+The approval inbox is local-only and file-backed. It is not a hosted approval service.
 
-RuleOak Core v2.0 includes a deny-by-default sandbox foundation. It is a security foundation control layer with automated tests and documentation. It is **not** an externally security-reviewed sandbox yet.
+---
+
+## Local-first reports and telemetry
+
+Generate HTML reports:
 
 ```bash
-npm run sandbox:inspect
-npm run sandbox:demo
-npm run test:sandbox
+npm run report:html
 ```
 
-The sandbox evaluates:
-
-- filesystem reads and writes;
-- localhost versus external network calls;
-- command allow, deny, and approval-required decisions;
-- registered tool decisions.
-
-## Examples
+Build the report catalog:
 
 ```bash
-npm run examples:list
-npm run example:consultant
-npm run example:research
+npm run viewer:build
 ```
 
-| Example | What it shows |
-|---|---|
-| Technical Consultant Demo | Evidence-backed case analysis, probable cause, recommended action, approval boundary, audit-style report |
-| Research Brief Demo | Sourced claims, confidence, known unknowns, recommendation, publishing approval boundary |
-| Python Bridge Sample | Generic Python workflow emitting RuleOak-compatible governance records |
+Export local telemetry-style files:
 
-Read [docs/examples-matrix.md](docs/examples-matrix.md).
+```bash
+npm run telemetry:export
+```
 
-## How RuleOak fits with other agent tools
+RuleOak does not send telemetry to any external service.
 
-RuleOak is not trying to replace orchestration, personal-assistant, or observability tools. It focuses on a narrower governance boundary: policy, evidence, approval, audit, and sandbox controls.
+---
 
-Read [docs/comparisons.md](docs/comparisons.md).
+## Python bridge direction
 
-## Contributing and feedback
+RuleOak Core remains the canonical runtime foundation.
 
-RuleOak Core is currently in a **feedback-first contribution phase**.
+The private-preview `ruleoak-py` SDK is used to validate Python vertical-app integration with `ruleoak.governance.v1` records and governed LLM calls.
 
-Issues and Discussions are welcome. Pull requests are disabled while the project finalizes its contribution governance and licensing process.
+The Python SDK is a bridge, not a fork of RuleOak Core. It is not yet a public stable package.
+
+Read [Python SDK compatibility](docs/integrations/python-sdk-compatibility.md).
+
+---
+
+## Safety boundaries
+
+RuleOak Core v2.0.3 is a local-first developer release. It is designed to be conservative, but it does not claim to be:
+
+- a certified compliance product
+- an externally security-reviewed sandbox
+- a hosted enterprise control plane
+- a production write-connector platform
+- a substitute for application security review
+
+Current external-style connectors are fixture-based, local, read-only, or dry-run approval-intent examples unless explicitly stated otherwise.
+
+Read:
+
+- [Security policy](SECURITY.md)
+- [Threat model](docs/security/threat-model.md)
+- [Sandbox boundaries](docs/security/sandbox-boundaries.md)
+
+---
+
+## Feedback-first contribution model
+
+RuleOak Core is currently in a feedback-first contribution phase.
+
+Issues and Discussions are welcome. Pull requests are disabled while contribution governance and licensing terms are finalized.
 
 Useful feedback includes:
 
 - setup problems
-- broken commands
-- unclear README steps
-- confusing examples
-- policy or audit model questions
-- sandbox boundary questions
-- integration ideas
-- documentation improvements
-- security concerns reported privately
+- confusing README steps
+- unclear examples
+- policy model questions
+- MCP integration questions
+- security boundary concerns
+- real workflow suggestions
 
-At this stage, please do not send unsolicited code patches. External code contributions may require a Contributor License Agreement or equivalent contribution terms in the future.
+Read [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Start here:
-
-- Use Issues for concrete bugs or documentation problems.
-- Use Discussions for questions, design feedback, and integration ideas.
-- Use `SECURITY.md` for vulnerability reporting.
-
-Read [docs/community/feedback-tasks.md](docs/community/feedback-tasks.md).
-
-## HTML reports and local viewer
-
-Generate one-page reports:
-
-```bash
-npm run report:html
-```
-
-Open a local-only browser viewer:
-
-```bash
-npm run report:view
-```
-
-The viewer serves reports at `http://127.0.0.1:8787/` from your machine. It is not a hosted cloud service.
-
-## Create your own workflow
-
-```bash
-npm run roak:init -- my-workflow --template=consultant-workflow
-npm run roak:init -- my-research --template=research-workflow
-npm run roak:init -- my-minimal --template=minimal-governed-workflow
-```
-
-Each template gives you a small policy, sample input, and workflow notes so you can adapt the RuleOak pattern to your own domain.
-
-## Local LLM readiness
-
-```bash
-npm run llm:doctor
-npm run llm:pull
-npm run llm:smoke
-```
-
-The local LLM helper checks your machine and recommends a starter Ollama model. It is onboarding guidance, not a benchmark.
-
-## What v2.0 is not
-
-RuleOak Core v2.0 is not yet:
-
-- a mature enterprise platform;
-- an externally security-reviewed sandbox;
-- a certified compliance product;
-- a hosted cloud service;
-- a finished vertical application.
-
-The current release is a runtime foundation for learning, prototyping, and building governed workflows.
-
-## Documentation
-
-| Need | Start here |
-|---|---|
-| Quickstart | [docs/quickstart.md](docs/quickstart.md) |
-| Runtime lifecycle | [docs/runtime-lifecycle.md](docs/runtime-lifecycle.md) |
-| Sandbox foundation | [docs/sandbox-foundation.md](docs/sandbox-foundation.md) |
-| Python SDK bridge | [docs/integrations/python-sdk.md](docs/integrations/python-sdk.md) |
-| Comparison with other tools | [docs/comparisons.md](docs/comparisons.md) |
-| Feedback tasks | [docs/community/feedback-tasks.md](docs/community/feedback-tasks.md) |
-| Threat model | [docs/security/threat-model.md](docs/security/threat-model.md) |
-| Build a vertical workflow | [docs/build-a-vertical.md](docs/build-a-vertical.md) |
-| Local LLM readiness | [docs/local-llm.md](docs/local-llm.md) |
-| License FAQ | [docs/license-faq.md](docs/license-faq.md) |
-| Brand rationale | [docs/brand-rationale.md](docs/brand-rationale.md) |
+---
 
 ## License
 
-RuleOak Core is licensed under **AGPL-3.0-or-later**. See [LICENSE](LICENSE) and [docs/license-faq.md](docs/license-faq.md).
+RuleOak Core is released under **AGPL-3.0-or-later**.
 
+Commercial licensing and closed-source embedding paths may require a separate license. Review licensing carefully before using RuleOak Core inside proprietary products or hosted services.
 
-## RuleOak Core
+Read [docs/license-faq.md](docs/license-faq.md).
 
-> **Govern every AI tool call before it acts.**
->
-> RuleOak Core v2.0.1 includes Tool Guard: policy, evidence, approval, and audit around agent actions and tool calls.
- v2.0: Governed Tool Calls
+---
 
-RuleOak Core v2.0.1 includes Tool Guard and an MCP Guard prototype. Start with `npm run guard:demo`, then read `docs/tool-guard.md` and `docs/mcp-guard.md`.
-
-
-## Governance Record Protocol
-
-RuleOak Core v2.0 adds `ruleoak.governance.v1`, a documented governance record protocol with JSON schemas, golden records, and a conformance test kit. This makes RuleOak records easier to validate across TypeScript Core, the private-preview Python bridge, and future adapters.
+## The shortest test
 
 ```bash
-npm run protocol:conformance
-npm run test:protocol
-```
-
-
-## LangGraph and CrewAI Adapter Samples
-
-RuleOak Core v2.0 includes dependency-free adapter samples that show how to wrap agent-framework tool calls with RuleOak Tool Guard.
-
-```bash
-npm run adapter:demo
-npm run test:adapters
-```
-
-
-## MCP Guard Proxy Prototype
-
-RuleOak Core v2.0 includes a local in-process MCP Guard Proxy prototype for JSON-RPC `tools/call` requests.
-
-```bash
-npm run mcp:proxy:demo
-npm run test:mcp-proxy
-```
-
-The proxy demonstrates how RuleOak can sit between an AI client and MCP-style tool execution.
-
-## Reusable policy packs
-
-RuleOak Core v2.0 adds reusable policy packs for common agent risk areas:
-
-- filesystem safety
-- external communication
-- ticketing read-only evidence
-- approval-gated ticketing writes
-- cloud LLM approval
-- PII redaction
-
-Try them:
-
-```bash
-npm run policy:packs:list
-npm run policy:demo
-```
-
-Policy packs make RuleOak easier to adopt because teams can start from explicit governance defaults instead of embedding safety rules inside prompts.
-
-## Local Approval Inbox
-
-RuleOak Core v2.0 adds a local approval inbox for actions that require human review. It collects pending approvals from RuleOak reports and builds a local HTML viewer.
-
-Try it:
-
-```bash
-npm run guard:demo
-npm run approval:inbox:build
-npm run approval:inbox
-```
-
-The inbox is local-first and file-backed. It does not call external services.
-
-## v2.0.3 TypeScript bin hotfix
-
-RuleOak Core v2.0.3 makes the TypeScript check more robust by calling TypeScript directly from `node_modules/typescript/bin/tsc` instead of relying on a potentially broken `.bin/tsc` shim.
-
-If `npm test` fails with `Cannot find module ../lib/tsc.js`, clean and reinstall dependencies:
-
-```bash
-rm -rf node_modules
 npm install
+npm run inspect
 npm test
+npm run integrate:10min
+npm run report:html
 ```
 
+Expected result:
+
+```text
+All tests pass
+The 10-minute demo runs
+HTML reports are generated locally
+No external credentials are required
+No external write actions occur
+```
