@@ -106,3 +106,8 @@ npm run personal:local-assistant-governance
 ```
 
 All three emit the same artifact pattern: governance records, evidence bundle, approval request, append-only audit log, JSON report, and HTML report.
+
+
+## Related diagrams
+
+See the [Visual guide](diagrams/README.md) for the 15-diagram overview of flows, protocol, connectors, deployment options, and reference verticals.

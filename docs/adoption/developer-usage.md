@@ -1,5 +1,10 @@
 # Developer usage
 
+![RuleOak Deployment Options](../assets/diagrams/deployment-options.png)
+
+![RuleOak Governance Flow](../assets/diagrams/governance-flow.png)
+
+
 RuleOak Core is a TypeScript runtime library for governing AI tool calls before execution. It provides guard and policy checks, approval gates, evidence records, audit reports, and protocol conformance tools.
 
 RuleOak Core is easiest to evaluate in two stages: first from source, then as a local package in your own TypeScript or Node.js project.

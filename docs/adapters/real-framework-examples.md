@@ -1,5 +1,10 @@
 # Real framework examples
 
+![Integration patterns for RuleOak](../assets/diagrams/integration-patterns-for-ruleoak.png)
+
+![Language extensions for TypeScript](../assets/diagrams/language-extensions-for-typescript.png)
+
+
 RuleOak Core v2.1.0 includes real-framework-ready examples for LangGraph, CrewAI, MCP-style tools, and coding-agent loops.
 
 The goal is external developer adoption: a developer should see where RuleOak fits without reading the whole project.

@@ -8,6 +8,10 @@ Declare tool call → Evaluate policy → Decide allow / approve / block → Pau
 
 Use this documentation in the order below. It is organized for developers evaluating the v2.1.0 release.
 
+![RuleOak Governance Flow](assets/diagrams/governance-flow.png)
+
+Also see the [Visual guide](diagrams/README.md) for the full 15-diagram architecture, workflow, connectors, deployment, and protocol set.
+
 ## 1. Start
 
 - [Developer usage](adoption/developer-usage.md) — source preview and local tarball install paths

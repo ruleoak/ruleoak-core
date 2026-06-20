@@ -1,5 +1,10 @@
 # Read-only Evidence Connectors
 
+![Connector landscape and outcomes](assets/diagrams/connector-landscape-and-outcomes.png)
+
+![Evidence to audit pipeline overview](assets/diagrams/evidence-to-audit-pipeline-overview.png)
+
+
 RuleOak Core introduces read-only evidence connector patterns.
 
 The purpose is to let governed workflows collect context from systems such as source-control, ticketing, and local documentation without giving the agent write access.

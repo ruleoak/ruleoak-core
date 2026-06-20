@@ -1,5 +1,10 @@
 # Stable Local-first Governance Layer
 
+![RuleOak Deployment Options](assets/diagrams/deployment-options.png)
+
+![Local-first operating model](assets/diagrams/local-first-operating-model.png)
+
+
 RuleOak Core is a local-first governance layer for AI tool calls.
 
 The latest public GitHub release is **v2.1.0**. This archive also contains **RuleOak Core v2.1.0 public-release work** with v2.1.0 package metadata for future validation. Treat future major releases references in this package as unreleased until a future major release is actually published.

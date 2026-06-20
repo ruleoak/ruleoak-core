@@ -1,5 +1,8 @@
 # RuleOak Governance Record Protocol v1
 
+![RuleOak Protocol and Records Model](../assets/diagrams/protocol-and-records-model.png)
+
+
 RuleOak Governance Protocol v1 is the stable, schema-backed record contract for governed AI tool-call workflows in RuleOak Core v2.x and future major releases.
 
 The protocol name is:

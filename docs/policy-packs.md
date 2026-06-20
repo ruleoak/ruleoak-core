@@ -1,5 +1,10 @@
 # RuleOak Policy Packs
 
+![RuleOak Policy Packs and Guards](assets/diagrams/policy-packs-and-guards.png)
+
+![Policy decision flow and approvals](assets/diagrams/policy-decision-flow-and-approvals.png)
+
+
 RuleOak Core v2.1.0 includes reusable policy packs.
 
 A policy pack is a small, versioned bundle of policy defaults for a common agent risk area. Packs can be combined and then used by Tool Guard, MCP Guard, adapter samples, and connector demos.

@@ -1,5 +1,10 @@
 # Why RuleOak
 
+![RuleOak Core overview](assets/diagrams/ruleoak-core-overview.png)
+
+![Who benefits from RuleOak](assets/diagrams/who-benefits-from-ruleoak.png)
+
+
 RuleOak Core is for developers who want to build useful AI workflows without losing control over what the agent is allowed to do.
 
 ## The problem

@@ -41,6 +41,21 @@ The demo follows the same sequence used in the quickstart, examples, and documen
 
 ---
 
+## Visual map
+
+Use these diagrams to understand the product quickly before reading every document:
+
+| Topic | Diagram | Related doc |
+|---|---|---|
+| Overall product shape | ![RuleOak Core overview](docs/assets/diagrams/ruleoak-core-overview.png) | [Why RuleOak](docs/why-ruleoak.md) |
+| Governance flow | ![How RuleOak works](docs/assets/diagrams/how-ruleoak-works-5-step-flow.png) | [10-minute quickstart](docs/adoption/10-minute-quickstart.md) |
+| Policy and approvals | ![Policy decision flow and approvals](docs/assets/diagrams/policy-decision-flow-and-approvals.png) | [Policy packs](docs/policy-packs.md) · [Approval inbox](docs/approval-inbox.md) |
+| Protocol and records | ![Protocol and records model](docs/assets/diagrams/protocol-and-records-model.png) | [Governance Protocol v1](docs/protocol/governance-records-v1.md) |
+
+For the full 15-diagram set, see the [Visual guide](docs/diagrams/README.md).
+
+---
+
 ## Start in 10 minutes
 
 ```bash

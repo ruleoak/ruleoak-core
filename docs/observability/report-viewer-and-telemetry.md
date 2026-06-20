@@ -1,5 +1,8 @@
 # Report Viewer and OpenTelemetry-style Export
 
+![Evidence to audit pipeline overview](../assets/diagrams/evidence-to-audit-pipeline-overview.png)
+
+
 RuleOak Core v2.1.0 includes the local report viewer and adds local OpenTelemetry-style export.
 
 ## Local report viewer
