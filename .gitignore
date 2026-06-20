@@ -6,3 +6,6 @@ coverage/
 # Generated reports and copied local apps
 examples/**/out/
 apps/
+out/
+quickstart/out/
+reports/
