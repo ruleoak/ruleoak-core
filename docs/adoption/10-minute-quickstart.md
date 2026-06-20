@@ -1,6 +1,12 @@
 # 10-minute developer quickstart
 
-Goal: show governance, approval, audit records, reports, and replay without reading the whole repository.
+RuleOak Core is a TypeScript runtime library for governing AI tool calls before execution. It provides guard and policy checks, approval gates, evidence records, audit reports, and protocol conformance tools.
+
+Goal: run the same governance loop shown in the website and demo GIF without reading the whole repository.
+
+```text
+Declare tool call → Evaluate policy → Decide allow / approve / block → Pause for approval when required → Record evidence and audit events → Validate and export audit report
+```
 
 ## 1. Install
 
@@ -8,63 +14,49 @@ Goal: show governance, approval, audit records, reports, and replay without read
 npm install
 ```
 
-## 2. Govern one tool call
+## 2. Run the full quickstart
 
 ```bash
-npm run quickstart:01
+npm run quickstart:all
 ```
 
-Expected result: `search_docs` is allowed and evidence is recorded.
+This runs five small examples:
 
-## 3. Block a dangerous command
+| Step | Command | Expected result |
+|---|---|---|
+| 1 | `npm run quickstart:01` | `search_docs` is allowed and evidence is recorded |
+| 2 | `npm run quickstart:02` | dangerous deletion is blocked before execution |
+| 3 | `npm run quickstart:03` | external send requires approval |
+| 4 | `npm run quickstart:04` | JSON and HTML audit reports are generated |
+| 5 | `npm run quickstart:05` | evidence bundle and audit chain can be replayed |
+
+## 3. Validate protocol conformance
 
 ```bash
-npm run quickstart:02
+npm run protocol:conformance
 ```
 
-Expected result: `delete_workspace` is blocked before execution.
-
-## 4. Pause a risky action for approval
+## 4. Build the local approval/audit surface
 
 ```bash
-npm run quickstart:03
+npm run product:surface:demo
 ```
 
-Expected result: `send_external_message` requires approval and receives an approval request id.
-
-## 5. Generate an audit report
-
-```bash
-npm run quickstart:04
-```
-
-Outputs:
+## Outputs to inspect
 
 ```text
-quickstart/out/04-generate-audit-report/report.json
-quickstart/out/04-generate-audit-report/report.html
+quickstart/out/
+reports/html/
+reports/approval-audit-surface/
 ```
-
-## 6. Replay evidence
-
-```bash
-npm run quickstart:05
-npm run protocol:replay quickstart/out/05-replay-evidence-bundle/evidence-bundle.json
-npm run protocol:replay quickstart/out/05-replay-evidence-bundle/audit-chain.json
-```
-
-Expected result: both replay checks are valid.
 
 ## What this proves
 
-RuleOak gives a developer a small integration surface:
-
-```text
-policy outside prompts
-approval before risky execution
-audit records created automatically
-reports generated locally
-replayable evidence bundle
-```
+- policy is outside prompts
+- risky actions can pause for approval before execution
+- blocked actions do not run
+- evidence and audit events are recorded
+- reports are generated locally
+- protocol compatibility can be validated locally
 
 RuleOak is an application-level tool-call governance boundary. It does not replace runtime sandboxing or claim certified compliance.

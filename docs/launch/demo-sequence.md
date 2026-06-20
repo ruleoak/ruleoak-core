@@ -1,6 +1,12 @@
-# Public Demo Sequence
+# Public demo sequence
 
-Keep the launch demo short and concrete. Do not begin with the full architecture.
+Keep the launch demo short and concrete. The public demo, website, README, and quickstart should all use the same sequence.
+
+RuleOak Core is a TypeScript runtime library for governing AI tool calls before execution. It provides guard and policy checks, approval gates, evidence records, audit reports, and protocol conformance tools.
+
+```text
+Declare tool call → Evaluate policy → Decide allow / approve / block → Pause for approval when required → Record evidence and audit events → Validate and export audit report
+```
 
 ## Demo 1 — AI coding agent governance
 
@@ -10,10 +16,12 @@ npm run coding:agent-governance
 
 Show:
 
-- read/search action is allowed;
-- code/file write is governed;
-- destructive workspace deletion is blocked;
-- report artifacts are generated.
+1. the proposed coding-agent action is declared;
+2. policy is evaluated before execution;
+3. safe reads are allowed;
+4. risky writes are governed;
+5. destructive workspace deletion is blocked;
+6. evidence-backed reports are generated.
 
 Message:
 
@@ -27,10 +35,10 @@ npm run rag:answer-governance
 
 Show:
 
-- answer requires evidence;
-- sensitive source access is governed;
-- unsupported claims are flagged or blocked;
-- evidence-backed report is generated.
+1. answer generation requires evidence;
+2. sensitive source access is governed;
+3. unsupported claims are flagged or blocked;
+4. evidence-backed reports are generated.
 
 Message:
 
@@ -45,10 +53,20 @@ npm run audit:viewer:v2:check
 
 Show:
 
-- approval-required action has reviewer context;
-- approval packet can be exported;
-- audit viewer verifies evidence and audit-chain integrity.
+1. approval-required action has reviewer context;
+2. approval packet can be exported;
+3. audit viewer verifies evidence and audit-chain integrity.
 
 Message:
 
 > RuleOak turns tool-call decisions into reviewable evidence.
+
+## Demo asset
+
+Use only the current v2.1.0 demo asset:
+
+```text
+docs/assets/demo/ruleoak-v2.1.0-demo.gif
+```
+
+Older demo GIFs were removed to avoid public-release confusion.

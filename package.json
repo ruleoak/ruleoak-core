@@ -71,7 +71,7 @@
     "example:consultant": "node examples/technical-consultant-demo/run.js",
     "create:app": "node scripts/create-app.js",
     "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
-    "test": "npm run typecheck && npm run test:runtime && npm run test:examples && npm run test:sandbox && npm run test:guard && npm run test:mcp && npm run test:connectors && npm run test:github-connector && npm run test:jira-connector && npm run test:writes && npm run test:reports && npm run test:telemetry && npm run test:protocol && npm run test:python-sdk && npm run test:python-bridge && npm run test:adapters && npm run test:mcp-proxy && npm run test:mcp-proxy-server && npm run test:policy-packs && npm run test:approval-inbox && npm run test:approval-ux && npm run test:approval-ux-v2 && npm run test:audit-viewer-v2 && npm run test:polish && npm run test:ux && npm run test:hardening && npm run test:security-corpus && npm run test:connector-safety && npm run test:mcp-safety && npm run test:report-snapshots && npm run test:real-adapters && npm run test:adapter-hardening && npm run test:policy-lab && npm run test:policy-pack-maturity && npm run test:connector-reliability && npm run test:enterprise-connectors && npm run test:protocol-stability && npm run test:protocol-v1-hardening && npm run test:protocol-conformance-kit && npm run test:brand-trust && npm run test:developer-adoption && npm run test:integrity-signing && npm run test:public-launch && npm run test:release-readiness && npm run test:public-release-hardening && npm run test:install-packed-smoke && npm run test:real-framework-examples && npm run test:real-evidence-connectors && npm run test:approval-audit-product-surface",
+    "test": "npm run typecheck && npm run test:runtime && npm run test:examples && npm run test:sandbox && npm run test:guard && npm run test:mcp && npm run test:connectors && npm run test:github-connector && npm run test:jira-connector && npm run test:writes && npm run test:reports && npm run test:telemetry && npm run test:protocol && npm run test:python-sdk && npm run test:python-bridge && npm run test:adapters && npm run test:mcp-proxy && npm run test:mcp-proxy-server && npm run test:policy-packs && npm run test:approval-inbox && npm run test:approval-ux && npm run test:approval-ux-v2 && npm run test:audit-viewer-v2 && npm run test:polish && npm run test:ux && npm run test:hardening && npm run test:security-corpus && npm run test:connector-safety && npm run test:mcp-safety && npm run test:report-snapshots && npm run test:real-adapters && npm run test:adapter-hardening && npm run test:policy-lab && npm run test:policy-pack-maturity && npm run test:connector-reliability && npm run test:enterprise-connectors && npm run test:protocol-stability && npm run test:protocol-v1-hardening && npm run test:protocol-conformance-kit && npm run test:brand-trust && npm run test:developer-adoption && npm run test:integrity-signing && npm run test:public-launch && npm run test:release-readiness && npm run test:public-release-hardening && npm run test:install-packed-smoke && npm run test:real-framework-examples && npm run test:real-evidence-connectors && npm run test:approval-audit-product-surface && npm run test:docs-public-message",
     "llm:doctor": "node scripts/local-llm-doctor.js",
     "llm:pull": "node scripts/local-llm-pull.js",
     "llm:smoke": "node scripts/local-llm-smoke.js",
@@ -248,15 +248,9 @@
     "product:surface:check": "node scripts/approval-audit-product-surface.js check",
     "product:surface:serve": "node scripts/approval-audit-product-surface.js serve",
     "product:surface:packet": "node scripts/approval-audit-product-surface.js packet",
-    "product:surface:check": "node scripts/approval-audit-product-surface.js check",
     "product:surface:check:json": "node scripts/approval-audit-product-surface.js check",
     "test:approval-audit-product-surface": "node tests/approval-audit-product-surface.test.js",
-    "release:public-check": "node scripts/public-release-hardening-check.js",
-    "release:public-check:json": "node scripts/public-release-hardening-check.js --json",
-    "adapter:real:check": "node scripts/real-framework-examples-check.js",
-    "adapter:real:check:json": "node scripts/real-framework-examples-check.js --json",
-    "evidence:real:check": "node scripts/real-evidence-connectors-check.js",
-    "evidence:real:check:json": "node scripts/real-evidence-connectors-check.js --json"
+    "test:docs-public-message": "node tests/docs-public-message.test.js"
   },
   "dependencies": {
     "zod": "^3.23.8",

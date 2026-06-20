@@ -1,60 +1,28 @@
-# RuleOak 60-Second Demo Script
+# Demo video script
 
-This script matches `docs/assets/demo/ruleoak-60s-governance-demo.gif`.
-
-## Goal
-
-Show the first-time path from install to governance result:
+This script matches the current demo asset:
 
 ```text
-install → launch → policy decision → evidence → approval → audit report
+docs/assets/demo/ruleoak-v2.1.0-demo.gif
+```
+
+## Message
+
+RuleOak Core is a TypeScript runtime library for governing AI tool calls before execution. It provides guard and policy checks, approval gates, evidence records, audit reports, and protocol conformance tools.
+
+## Sequence
+
+```text
+Declare tool call → Evaluate policy → Decide allow / approve / block → Pause for approval when required → Record evidence and audit events → Validate and export audit report
 ```
 
 ## Script
 
-### 0-10 seconds: install
+1. Start with a proposed AI tool call.
+2. Show policy evaluation before execution.
+3. Show the decision: allow, approval required, or blocked.
+4. Show approval when the action is risky.
+5. Show evidence and audit events being recorded.
+6. Show local validation and audit report export.
 
-```bash
-npm install
-```
-
-Explain: RuleOak runs locally and does not require a hosted service for the demo path.
-
-### 10-20 seconds: launch
-
-```bash
-npm run launch
-```
-
-Explain: the launch command runs the guided first-user flow.
-
-### 20-30 seconds: policy decision
-
-Show a proposed action and the policy result:
-
-```text
-proposed action: publish_report
-policy decision: approval_required
-```
-
-Explain: RuleOak evaluates actions before execution.
-
-### 30-40 seconds: evidence
-
-Show evidence attached to the recommendation.
-
-Explain: RuleOak separates model output from evidence-backed records.
-
-### 40-50 seconds: approval
-
-Show approval required or denied.
-
-Explain: risky actions can pause for human review.
-
-### 50-60 seconds: audit report
-
-```bash
-npm run report:view
-```
-
-Explain: the local report viewer shows run, evidence, policy, approval, and audit records.
+Use narrow claims. Do not describe RuleOak as certified, audited, regulator-approved, or a complete sandbox.

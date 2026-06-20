@@ -1,5 +1,0 @@
-{
-  "requiredCatalogSchema": "ruleoak.report_catalog.v1",
-  "minimumReportCount": 1,
-  "requiredSummaryFields": ["id", "title", "sourcePath", "runtimeVersion", "status", "counts"]
-}
