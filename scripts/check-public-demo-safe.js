@@ -1,7 +1,10 @@
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-const roots = ["examples/safedesk-demo", "examples/consumer-vertical-demos", "apps/safedesk/examples/public-demo"];
+// Only public, sanitized examples belong in ruleoak-core. Full SafeDesk app
+// examples live in the private/commercial SafeDesk repo and must not be
+// required by this public artifact boundary check.
+const roots = ["examples/safedesk-demo", "examples/consumer-vertical-demos"];
 const banned = [
   /NRIC\b/i,
   /passport\s*number\s*[:=]/i,

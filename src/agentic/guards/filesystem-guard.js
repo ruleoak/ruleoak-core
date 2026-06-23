@@ -1,4 +1,4 @@
-import { resolve, relative, normalize, sep, basename } from "node:path";
+import { resolve, relative, normalize, sep, basename, dirname } from "node:path";
 import { existsSync, realpathSync, lstatSync } from "node:fs";
 import { redactValue } from "../redaction.js";
 
@@ -16,7 +16,33 @@ const DELETE_OPS = new Set(["delete", "remove", "unlink", "rmdir", "wipe", "rm",
 function asArray(value) { return Array.isArray(value) ? value : value ? [value] : []; }
 function lower(value) { return String(value || "").toLowerCase(); }
 function safeRealpath(path) {
-  try { return existsSync(path) ? realpathSync(path) : path; } catch { return path; }
+  const resolved = resolve(String(path || "."));
+  try {
+    if (existsSync(resolved)) return realpathSync(resolved);
+
+    // For a non-existing target inside an existing workspace, resolve the
+    // nearest existing ancestor first. This avoids false outside-workspace
+    // denials on platforms such as macOS where temporary directories can be
+    // reached through symlinked path prefixes. Example: workspace root may
+    // realpath to /private/var/... while a new child path still appears as
+    // /var/... until it exists.
+    const missingSegments = [];
+    let cursor = resolved;
+    while (!existsSync(cursor)) {
+      const parent = dirname(cursor);
+      if (parent === cursor) break;
+      missingSegments.unshift(basename(cursor));
+      cursor = parent;
+    }
+
+    if (existsSync(cursor)) {
+      return resolve(realpathSync(cursor), ...missingSegments);
+    }
+
+    return resolved;
+  } catch {
+    return resolved;
+  }
 }
 function isSymlink(path) {
   try { return existsSync(path) && lstatSync(path).isSymbolicLink(); } catch { return false; }
