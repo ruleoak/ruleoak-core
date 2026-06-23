@@ -1,7 +1,7 @@
 
 # Approval Inbox UX
 
-RuleOak Core v2.1.0 documents the local Approval Inbox so reviewers can understand pending agent actions before approving or rejecting them.
+RuleOak Core v2.2.0 documents the local Approval Inbox so reviewers can understand pending agent actions before approving or rejecting them.
 
 ## What the inbox shows
 

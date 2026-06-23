@@ -1,6 +1,6 @@
 # Validation Matrix
 
-This matrix summarizes the checks that support RuleOak Core v2.1.0's trust posture.
+This matrix summarizes the checks that support RuleOak Core v2.2.0's trust posture.
 
 | Area | Command | What it validates |
 |---|---|---|

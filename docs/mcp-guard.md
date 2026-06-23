@@ -40,7 +40,7 @@ Tool protocols make it easier for AI systems to reach external capabilities. Rul
 
 ## MCP Guard Proxy Prototype
 
-RuleOak Core v2.1.0 includes a local in-process MCP Guard Proxy prototype for JSON-RPC `tools/call` requests.
+RuleOak Core v2.2.0 includes a local in-process MCP Guard Proxy prototype for JSON-RPC `tools/call` requests.
 
 ```bash
 npm run mcp:proxy:demo

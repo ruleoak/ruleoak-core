@@ -1,6 +1,6 @@
 # Enterprise RAG Answer Governance
 
-This RuleOak Core v2.1.0 reference vertical shows RuleOak governing an enterprise RAG answer workflow.
+This RuleOak Core v2.2.0 reference vertical shows RuleOak governing an enterprise RAG answer workflow.
 
 Run:
 

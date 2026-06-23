@@ -5,7 +5,7 @@ import { realAdapterManifest } from "../src/adapters/index.js";
 
 const manifest = realAdapterManifest();
 assert.equal(manifest.schema, "ruleoak.real_adapter_pack.v1");
-assert.match(manifest.version, /^(?:2\.1\.0|2\.(?:[7-9]|10)\.0|3\.\d+\.0)$/);
+assert.match(manifest.version, /^(?:2\.2\.0|2\.(?:[3-9]|10)\.0|3\.\d+\.0)$/);
 assert.ok(manifest.adapters.some((adapter) => adapter.id === "langgraph-python"));
 assert.ok(manifest.adapters.some((adapter) => adapter.id === "crewai-python"));
 assert.ok(manifest.adapters.some((adapter) => adapter.id === "mcp-local-jsonrpc"));

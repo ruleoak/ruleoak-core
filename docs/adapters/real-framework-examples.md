@@ -5,7 +5,7 @@
 ![Language extensions for TypeScript](../assets/diagrams/language-extensions-for-typescript.png)
 
 
-RuleOak Core v2.1.0 includes real-framework-ready examples for LangGraph, CrewAI, MCP-style tools, and coding-agent loops.
+RuleOak Core v2.2.0 includes real-framework-ready examples for LangGraph, CrewAI, MCP-style tools, and coding-agent loops.
 
 The goal is external developer adoption: a developer should see where RuleOak fits without reading the whole project.
 

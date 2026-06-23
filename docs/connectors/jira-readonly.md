@@ -1,6 +1,6 @@
 # Jira read-only evidence connector
 
-RuleOak Core v2.1.0 includes a Jira read-only evidence connector that converts Jira issue metadata into RuleOak evidence records.
+RuleOak Core v2.2.0 includes a Jira read-only evidence connector that converts Jira issue metadata into RuleOak evidence records.
 
 ## Why it exists
 

@@ -38,8 +38,8 @@ function evidence({ id, source, subject, claim, value, fixtureOnly = true, metad
 export const ENTERPRISE_CONNECTOR_MANIFEST = Object.freeze({
   protocol: "ruleoak.enterprise_evidence_connectors.v1",
   governanceProtocol: "ruleoak.governance.v1",
-  latestPublicCoreRelease: "v2.1.0",
-  stage: "RuleOak Core v2.1.0",
+  latestPublicCoreRelease: "v2.2.0",
+  stage: "RuleOak Core v2.2.0",
   boundary: {
     mode: "read_only",
     writes: "not_supported_by_evidence_connectors",

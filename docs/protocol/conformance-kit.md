@@ -2,7 +2,7 @@
 
 The Protocol Conformance Kit turns `ruleoak.governance.v1` from an internal record format into a repeatable compatibility target for SDKs, adapters, and vertical applications.
 
-This is RuleOak Core v2.1.0. The latest public RuleOak Core release remains **v2.1.0**.
+This is RuleOak Core v2.2.0. The latest public RuleOak Core release remains **v2.2.0**.
 
 ## Why it matters
 

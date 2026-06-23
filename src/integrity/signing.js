@@ -4,8 +4,8 @@ import { stableJson } from "../protocol/stable-json.js";
 export const INTEGRITY_SCHEMA_VERSION = "ruleoak.integrity.v1";
 export const SIGNATURE_ALGORITHM = "ed25519";
 export const HASH_ALGORITHM = "sha256";
-export const DEVELOPMENT_TRACK = "RuleOak Core v2.1.0 release";
-export const LATEST_PUBLIC_CORE_RELEASE = "v2.1.0";
+export const DEVELOPMENT_TRACK = "RuleOak Core v2.2.0 release";
+export const LATEST_PUBLIC_CORE_RELEASE = "v2.2.0";
 export const EARLIER_PUBLIC_BASELINE = "v1.0.1";
 
 const OMIT_KEYS = new Set(["integrity", "signature", "signatures", "signatureEnvelope", "bundleSignature", "auditChainSignature"]);

@@ -1,6 +1,6 @@
 # Python SDK Compatibility Bridge
 
-This RuleOak Core v2.1.0 release adds a Core-side bridge for `ruleoak-py` v0.3 records.
+This RuleOak Core v2.2.0 release adds a Core-side bridge for `ruleoak-py` v0.3 records.
 
 The bridge keeps the stable RuleOak Governance Protocol v1 contract:
 

@@ -1,6 +1,6 @@
 # Real adapter pack
 
-RuleOak Core v2.1.0 includes optional real adapter examples for common agent stacks.
+RuleOak Core v2.2.0 includes optional real adapter examples for common agent stacks.
 
 The examples are intentionally lightweight:
 

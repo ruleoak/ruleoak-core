@@ -8,7 +8,7 @@ It demonstrates and implements a practical control path:
 policy → evidence → approval → audit
 ```
 
-## Included in v2.1.0
+## Included in v2.2.0
 
 - runtime lifecycle modules;
 - deny-by-default sandbox foundation;
@@ -21,7 +21,7 @@ policy → evidence → approval → audit
 - tests and CI workflow;
 - threat-model and sandbox-boundary documentation.
 
-## Not claimed in v2.1.0
+## Not claimed in v2.2.0
 
 RuleOak Core is not yet:
 
@@ -50,6 +50,6 @@ security-reviewed
 unless those capabilities are later implemented, tested, reviewed, and documented.
 
 
-## v2.1.0 Tool Guard boundary
+## v2.2.0 Tool Guard boundary
 
 Tool Guard evaluates proposed tool calls and records governance decisions before execution. It is not a tool executor, production proxy, externally security-reviewed sandbox, or compliance certification.

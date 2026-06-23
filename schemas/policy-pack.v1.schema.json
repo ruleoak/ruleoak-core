@@ -31,7 +31,7 @@
       "properties": {
         "policyPackSchema": { "const": "ruleoak.policy_pack.v1" },
         "governanceProtocol": { "const": "ruleoak.governance.v1" },
-        "latestPublicCoreRelease": { "const": "v2.1.0" },
+        "latestPublicCoreRelease": { "const": "v2.2.0" },
         "earlierPublicBaseline": { "const": "v1.0.1" },
         "developmentTrack": { "type": "string", "minLength": 1 },
         "supportsCoreMajor": { "type": "array", "items": { "type": "string" } }

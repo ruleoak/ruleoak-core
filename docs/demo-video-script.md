@@ -3,7 +3,7 @@
 This script matches the current demo asset:
 
 ```text
-docs/assets/demo/ruleoak-v2.1.0-demo.gif
+docs/assets/demo/ruleoak-v2.2.0-demo.gif
 ```
 
 ## Message

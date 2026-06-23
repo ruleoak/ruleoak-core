@@ -1,12 +1,12 @@
 # Public Release Checklist
 
-Use this checklist before publishing any public RuleOak Core release after v2.1.0.
+Use this checklist before publishing any public RuleOak Core release after v2.2.0.
 
 ## Version positioning
 
 - [ ] Latest public release is stated accurately.
 - [ ] v1.0.1 remains the earlier public baseline.
-- [ ] RuleOak Core v2.1.0 are not marketed as a public future major release.
+- [ ] RuleOak Core v2.2.0 are not marketed as a public future major release.
 - [ ] package metadata, docs, and website release labels are consistent.
 - [ ] `docs/release-versioning.md` is updated if the public release line changes.
 

@@ -19,7 +19,7 @@ const policy = {
   blockedTools: ["shell_rm_rf", "read_env_secret"]
 };
 
-const guard = new ToolGuard({ manifest, policy, actor: "coding-agent", runId: "roak-v2.1.0-coding-agent-boundary" });
+const guard = new ToolGuard({ manifest, policy, actor: "coding-agent", runId: "roak-v2.2.0-coding-agent-boundary" });
 const toolCalls = [
   { toolId: "read_file", subject: "src/index.js" },
   { toolId: "run_tests", subject: "npm test" },
@@ -29,7 +29,7 @@ const toolCalls = [
   { toolId: "read_env_secret", subject: ".env" }
 ];
 
-const decisions = toolCalls.map((call) => guard.evaluateToolCall({ ...call, metadata: { example: "real-framework-coding-agent-boundary", ruleoakCoreRelease: "2.1.0" } }));
+const decisions = toolCalls.map((call) => guard.evaluateToolCall({ ...call, metadata: { example: "real-framework-coding-agent-boundary", ruleoakCoreRelease: "2.2.0" } }));
 const executed = decisions.filter((d) => d.allowedNow).map((d) => d.toolId);
 const paused = decisions.filter((d) => d.approvalRequired).map((d) => d.toolId);
 const blocked = decisions.filter((d) => d.blocked).map((d) => d.toolId);
@@ -37,10 +37,10 @@ const blocked = decisions.filter((d) => d.blocked).map((d) => d.toolId);
 console.log(JSON.stringify({
   ok: true,
   adapter: "coding-agent-boundary",
-  ruleoakCoreRelease: "2.1.0",
+  ruleoakCoreRelease: "2.2.0",
   executed,
   paused,
   blocked,
-  report: guard.report({ title: "RuleOak v2.1.0 coding agent boundary" }),
+  report: guard.report({ title: "RuleOak v2.2.0 coding agent boundary" }),
   boundary: "RuleOak evaluates coding-agent file, shell, and git actions before execution."
 }, null, 2));

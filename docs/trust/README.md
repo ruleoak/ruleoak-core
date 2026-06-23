@@ -4,9 +4,9 @@ RuleOak Core is a local-first governance layer for AI tool calls. This trust cen
 
 Public release status:
 
-- latest public RuleOak Core release: **v2.1.0**;
+- latest public RuleOak Core release: **v2.2.0**;
 - earlier public baseline: **v1.0.1**;
-- this archive is prepared as the **RuleOak Core v2.1.0 public developer release**.
+- this archive is prepared as the **RuleOak Core v2.2.0 public developer release**.
 
 ## What RuleOak is designed to do
 

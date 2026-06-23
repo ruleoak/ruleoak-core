@@ -130,7 +130,7 @@ export class PolicyTestLab {
     });
     const summary = summarizeOutcomes(decisions);
     return {
-      runtimeVersion: "2.1.0",
+      runtimeVersion: "2.2.0",
       runtimeStage: "policy-test-lab",
       title,
       scenario: normalizedScenario,
@@ -152,7 +152,7 @@ export class PolicyTestLab {
   explain(packIds = []) {
     const combined = this.combinePacks(packIds);
     return {
-      runtimeVersion: "2.1.0",
+      runtimeVersion: "2.2.0",
       runtimeStage: "policy-test-lab",
       selectedPolicyPacks: combined.packIds,
       boundary: combined.policy.boundary,
@@ -194,7 +194,7 @@ export class PolicyTestLab {
       }
     }
     return {
-      runtimeVersion: "2.1.0",
+      runtimeVersion: "2.2.0",
       runtimeStage: "policy-pack-maturity",
       schemaVersion: "ruleoak.policy_pack.v1",
       summary: {
@@ -212,7 +212,7 @@ export class PolicyTestLab {
     const before = this.runScenario({ packIds: beforePackIds, scenario, title: "Before policy" });
     const after = this.runScenario({ packIds: afterPackIds, scenario, title: "After policy" });
     return {
-      runtimeVersion: "2.1.0",
+      runtimeVersion: "2.2.0",
       runtimeStage: "policy-test-lab",
       before: { selectedPolicyPacks: before.selectedPolicyPacks, summary: before.summary, decisions: before.decisions },
       after: { selectedPolicyPacks: after.selectedPolicyPacks, summary: after.summary, decisions: after.decisions },

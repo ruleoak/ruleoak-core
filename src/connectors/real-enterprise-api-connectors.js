@@ -376,7 +376,7 @@ export class GrafanaApiReadOnlyConnector extends RealReadOnlyConnectorBase {
 export const REAL_EVIDENCE_CONNECTOR_V1_MANIFEST = Object.freeze({
   protocol: "ruleoak.real_evidence_connectors.v1",
   governanceProtocol: "ruleoak.governance.v1",
-  coreRelease: "v2.1.0",
+  coreRelease: "v2.2.0",
   boundary: {
     mode: "read_only",
     methods: ["GET", "HEAD"],

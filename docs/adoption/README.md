@@ -22,4 +22,4 @@ npm run quickstart:all
 npm run adoption:real-frameworks
 ```
 
-Public-release note: the latest public RuleOak Core release is **v2.1.0**. Developer adoption assets are included in this release.
+Public-release note: the latest public RuleOak Core release is **v2.2.0**. Developer adoption assets are included in this release.

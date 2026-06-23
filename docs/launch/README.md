@@ -1,6 +1,6 @@
-# RuleOak Core v2.1.0 Public Release
+# RuleOak Core v2.2.0 Public Release
 
-RuleOak Core v2.1.0 should stay narrow, developer-first, and evidence-backed.
+RuleOak Core v2.2.0 should stay narrow, developer-first, and evidence-backed.
 
 ## Launch message
 

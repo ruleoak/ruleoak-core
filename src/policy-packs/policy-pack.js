@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 export const POLICY_PACK_SCHEMA_VERSION = "ruleoak.policy_pack.v1";
 export const POLICY_PACK_PROTOCOL_VERSION = "ruleoak.governance.v1";
-export const POLICY_PACK_LATEST_PUBLIC_CORE = "v2.1.0";
+export const POLICY_PACK_LATEST_PUBLIC_CORE = "v2.2.0";
 export const POLICY_PACK_EARLIER_BASELINE = "v1.0.1";
 
 function unique(values = []) {
@@ -39,7 +39,7 @@ function defaultCompatibility() {
     governanceProtocol: POLICY_PACK_PROTOCOL_VERSION,
     latestPublicCoreRelease: POLICY_PACK_LATEST_PUBLIC_CORE,
     earlierPublicBaseline: POLICY_PACK_EARLIER_BASELINE,
-    developmentTrack: "RuleOak Core v2.1.0 release",
+    developmentTrack: "RuleOak Core v2.2.0 release",
     supportsCoreMajor: ["2", "future-3"]
   };
 }
@@ -328,7 +328,7 @@ export class PolicyPackRegistry {
     return {
       schemaVersion: POLICY_PACK_SCHEMA_VERSION,
       latestPublicCoreRelease: POLICY_PACK_LATEST_PUBLIC_CORE,
-      guidance: "Policy packs are versioned governance assets. Public docs should keep v2.1.0 as the latest released Core until a future future major release is intentionally published.",
+      guidance: "Policy packs are versioned governance assets. Public docs should keep v2.2.0 as the latest released Core until a future future major release is intentionally published.",
       packs
     };
   }

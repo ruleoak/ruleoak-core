@@ -81,7 +81,7 @@ const connectors = [
 const evidence = await collectRealEnterpriseEvidence({ connectors });
 const report = {
   schema: "ruleoak.real_evidence_connectors_v1.report",
-  coreRelease: "v2.1.0",
+  coreRelease: "v2.2.0",
   manifest: REAL_EVIDENCE_CONNECTOR_V1_MANIFEST,
   connectorCount: connectors.length,
   evidenceCount: evidence.length,

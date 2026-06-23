@@ -54,7 +54,7 @@ const runRecord = createRunRecord({
   createdAt,
   updatedAt: completedAt,
   metadata: {
-    packageReleaseContext: 'RuleOak Core public latest v2.1.0; this reference vertical is RuleOak Core v2.1.0',
+    packageReleaseContext: 'RuleOak Core public latest v2.2.0; this reference vertical is RuleOak Core v2.2.0',
     requestId: changeRequest.requestId,
     ticketKey: ticket.key,
     service: changeRequest.service,
@@ -377,7 +377,7 @@ if (!bundleCheck.valid) throw new Error(`Evidence bundle failed verification: ${
 if (!chainCheck.valid) throw new Error(`Audit chain failed verification: ${chainCheck.errors.join('; ')}`);
 
 const referenceReport = {
-  runtimeVersion: 'RuleOak Core v2.1.0',
+  runtimeVersion: 'RuleOak Core v2.2.0',
   runtimeStage: 'reference-vertical',
   run: {
     id: runId,

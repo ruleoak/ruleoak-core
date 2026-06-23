@@ -1,6 +1,6 @@
 # Adapter hardening
 
-> Release status: RuleOak Core v2.1.0 release. Public RuleOak Core release remains v2.1.0 until a future release is cut.
+> Release status: RuleOak Core v2.2.0 release. Public RuleOak Core release remains v2.2.0 until a future release is cut.
 
 RuleOak adapter hardening helps developers add governance around existing agent frameworks without redesigning the application.
 

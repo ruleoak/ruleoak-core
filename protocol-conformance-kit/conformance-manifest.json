@@ -4,8 +4,8 @@
   "protocol": "ruleoak.governance.v1",
   "evidenceBundle": "ruleoak.evidence_bundle.v1",
   "policyPack": "ruleoak.policy_pack.v1",
-  "latestPublicCoreRelease": "v2.1.0",
-  "implementationStatus": "RuleOak Core v2.1.0 release / future release work",
+  "latestPublicCoreRelease": "v2.2.0",
+  "implementationStatus": "RuleOak Core v2.2.0 release / future release work",
   "generatedAt": "2026-01-01T00:00:00.000Z",
   "compatibilityBadges": [
     "RuleOak Governance v1 compatible",

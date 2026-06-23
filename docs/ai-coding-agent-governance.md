@@ -1,6 +1,6 @@
 # AI Coding Agent Governance
 
-This RuleOak Core v2.1.0 reference vertical shows RuleOak governing an AI coding agent at the tool-call boundary.
+This RuleOak Core v2.2.0 reference vertical shows RuleOak governing an AI coding agent at the tool-call boundary.
 
 Run:
 

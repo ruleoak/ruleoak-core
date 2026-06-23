@@ -42,7 +42,7 @@ const connectors = [
 
 const evidence = await collectRealEnterpriseEvidence({ connectors });
 assert.ok(evidence.length >= 10);
-assert.equal(REAL_EVIDENCE_CONNECTOR_V1_MANIFEST.coreRelease, "v2.1.0");
+assert.equal(REAL_EVIDENCE_CONNECTOR_V1_MANIFEST.coreRelease, "v2.2.0");
 assert.ok(REAL_EVIDENCE_CONNECTOR_V1_MANIFEST.connectors.includes("gitlab_api_readonly"));
 assert.ok(evidence.every((item) => item.metadata.readOnly === true));
 assert.ok(evidence.every((item) => item.metadata.writes === false || item.metadata.diagnostic === true));

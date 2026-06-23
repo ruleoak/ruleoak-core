@@ -76,7 +76,7 @@ export function runGovernanceVertical(exampleFileUrl) {
     createdAt,
     updatedAt: completedAt,
     metadata: {
-      packageReleaseContext: 'RuleOak Core public latest v2.1.0; this reference vertical is RuleOak Core v2.1.0',
+      packageReleaseContext: 'RuleOak Core public latest v2.2.0; this reference vertical is RuleOak Core v2.2.0',
       vertical: scenario.slug,
       targetDevelopers: scenario.targetDevelopers,
       boundary: policy.boundary
@@ -221,7 +221,7 @@ export function runGovernanceVertical(exampleFileUrl) {
   if (!chainCheck.valid) throw new Error(`Audit chain failed verification: ${chainCheck.errors.join('; ')}`);
 
   const referenceReport = {
-    runtimeVersion: 'RuleOak Core v2.1.0',
+    runtimeVersion: 'RuleOak Core v2.2.0',
     runtimeStage: 'reference-vertical',
     run: {
       id: scenario.runId,

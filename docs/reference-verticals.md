@@ -3,7 +3,7 @@
 ![Refining use cases and workflows](assets/diagrams/refining-use-cases-and-workflows.png)
 
 
-RuleOak Core public latest release is v2.1.0. The reference verticals in v2.1.0 show how the same governance protocol applies beyond SRE.
+RuleOak Core public latest release is v2.2.0. The reference verticals in v2.2.0 show how the same governance protocol applies beyond SRE.
 
 | Vertical | Command | Developer audience | Governance pattern |
 |---|---|---|---|

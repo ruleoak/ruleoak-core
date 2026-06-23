@@ -3,7 +3,7 @@
 ![Evidence to audit pipeline overview](../assets/diagrams/evidence-to-audit-pipeline-overview.png)
 
 
-RuleOak Core v2.1.0 includes the local report viewer and adds local OpenTelemetry-style export.
+RuleOak Core v2.2.0 includes the local report viewer and adds local OpenTelemetry-style export.
 
 ## Local report viewer
 
@@ -26,7 +26,7 @@ Generated files:
 - `reports/telemetry/ruleoak-otel-events.jsonl`
 - `reports/telemetry/ruleoak-otel-spans.json`
 
-The export is local-only. RuleOak does not send telemetry to an external collector in v2.1.0.
+The export is local-only. RuleOak does not send telemetry to an external collector in v2.2.0.
 
 ## Why this matters
 
@@ -37,4 +37,4 @@ Governed AI workflows need operational visibility:
 - which evidence records supported decisions
 - how many risky actions were blocked
 
-v2.1.0 provides a stable local export pattern that can later be connected to enterprise observability systems.
+v2.2.0 provides a stable local export pattern that can later be connected to enterprise observability systems.

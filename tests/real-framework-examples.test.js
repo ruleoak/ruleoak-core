@@ -13,7 +13,7 @@ const required = [
 for (const path of required) assert.ok(existsSync(path), `${path} should exist`);
 
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
-assert.equal(pkg.version, "2.1.0");
+assert.equal(pkg.version, "2.2.0");
 for (const script of [
   "adapter:real:all",
   "adapter:langgraph:real",

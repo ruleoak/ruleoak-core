@@ -29,7 +29,7 @@ assert.equal(validation.summary.invalid, 0);
 assert.equal(validation.summary.total, packs.length);
 
 const matrix = registry.compatibilityMatrix();
-assert.equal(matrix.latestPublicCoreRelease, "v2.1.0");
+assert.equal(matrix.latestPublicCoreRelease, "v2.2.0");
 assert.equal(matrix.packs.length, packs.length);
 assert.ok(matrix.packs.every((pack) => pack.scenarioTestCount >= 1));
 

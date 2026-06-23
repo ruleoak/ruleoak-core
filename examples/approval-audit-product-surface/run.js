@@ -16,5 +16,5 @@ const generators = [
 for (const [script] of generators) execFileSync(process.execPath, [join(root, script)], { stdio: "pipe" });
 
 const result = buildApprovalAuditProductSurface({ root, outputDir: outDir });
-writeFileSync(join(outDir, "summary.json"), `${JSON.stringify({ schema: "ruleoak.approval_audit_product_surface_example.v1", latestPublicCoreRelease: "v2.1.0", indexPath: result.indexPath, dashboardPath: result.dashboardPath, packetPath: result.packetPath, reportCount: result.reportCount, approvalCount: result.approvalCount }, null, 2)}\n`);
-console.log(JSON.stringify({ ok: true, release: "v2.1.0", productSurface: result.indexPath, dashboard: result.dashboardPath, approvals: result.approvalCount, reports: result.reportCount }, null, 2));
+writeFileSync(join(outDir, "summary.json"), `${JSON.stringify({ schema: "ruleoak.approval_audit_product_surface_example.v1", latestPublicCoreRelease: "v2.2.0", indexPath: result.indexPath, dashboardPath: result.dashboardPath, packetPath: result.packetPath, reportCount: result.reportCount, approvalCount: result.approvalCount }, null, 2)}\n`);
+console.log(JSON.stringify({ ok: true, release: "v2.2.0", productSurface: result.indexPath, dashboard: result.dashboardPath, approvals: result.approvalCount, reports: result.reportCount }, null, 2));

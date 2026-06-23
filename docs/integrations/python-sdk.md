@@ -67,7 +67,7 @@ The optional smoke test is local only. It does not download packages and does no
 
 The SDK version is separate from RuleOak Core:
 
-- RuleOak Core: latest public release v2.1.0
+- RuleOak Core: latest public release v2.2.0
 - ruleoak-py: v0.3 private-preview SDK bridge
 - Record compatibility: RuleOak Core
 

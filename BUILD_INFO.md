@@ -1,8 +1,8 @@
-# RuleOak Core v2.1.0 Build Info
+# RuleOak Core v2.2.0 Build Info
 
 Release status: public developer release hardening package.
 
-- Public release: RuleOak Core v2.1.0
+- Public release: RuleOak Core v2.2.0
 - Previous public release: RuleOak Core v2.0.3
 - Earlier public baseline: RuleOak Core v1.0.1
 - Governance protocol: ruleoak.governance.v1

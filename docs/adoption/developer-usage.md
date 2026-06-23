@@ -38,7 +38,7 @@ cd ruleoak-core
 npm install
 npm pack
 cd ../your-agent-project
-npm install ../ruleoak-core/ruleoak-core-2.1.0.tgz
+npm install ../ruleoak-core/ruleoak-core-2.2.0.tgz
 ```
 
 Then wrap one tool-call boundary in your project:

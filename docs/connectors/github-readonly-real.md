@@ -1,6 +1,6 @@
 # RuleOak GitHub Read-only Evidence Connector
 
-RuleOak Core v2.1.0 includes a real read-only GitHub evidence connector.
+RuleOak Core v2.2.0 includes a real read-only GitHub evidence connector.
 
 It can collect repository, issue, and pull request metadata through GitHub GET requests and convert that information into RuleOak evidence records.
 

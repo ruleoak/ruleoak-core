@@ -2,7 +2,7 @@
 
 This kit lets another implementation prove that it can emit, hash, reject, and replay RuleOak governance artifacts consistently.
 
-It is part of the RuleOak Core v2.1.0 release. The latest public RuleOak Core release remains **v2.1.0** and the earlier public baseline remains **v1.0.1**.
+It is part of the RuleOak Core v2.2.0 release. The latest public RuleOak Core release remains **v2.2.0** and the earlier public baseline remains **v1.0.1**.
 
 ## What this kit checks
 

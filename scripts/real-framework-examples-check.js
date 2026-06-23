@@ -18,20 +18,20 @@ for (const path of [
 ]) check(existsSync(path), `${path} exists`);
 
 const langgraph = json("python3", ["examples/real-frameworks/langgraph-python/guarded_node.py"]);
-check(langgraph.ok && langgraph.ruleoakCoreRelease === "2.1.0", "LangGraph example reports v2.1.0");
+check(langgraph.ok && langgraph.ruleoakCoreRelease === "2.2.0", "LangGraph example reports v2.2.0");
 check(langgraph.summary.allowed === 1 && langgraph.summary.approvalRequired === 1 && langgraph.summary.denied === 1, "LangGraph example covers allow/approval/deny");
 
 const crewai = json("python3", ["examples/real-frameworks/crewai-python/guarded_tool.py"]);
-check(crewai.ok && crewai.ruleoakCoreRelease === "2.1.0", "CrewAI example reports v2.1.0");
+check(crewai.ok && crewai.ruleoakCoreRelease === "2.2.0", "CrewAI example reports v2.2.0");
 check(crewai.summary.allowed === 1 && crewai.summary.approvalRequired === 1 && crewai.summary.denied === 1, "CrewAI example covers allow/approval/deny");
 
 const mcp = json(process.execPath, ["examples/real-frameworks/mcp-proxy/run.js"]);
-check(mcp.ok && mcp.ruleoakCoreRelease === "2.1.0", "MCP proxy example reports v2.1.0");
+check(mcp.ok && mcp.ruleoakCoreRelease === "2.2.0", "MCP proxy example reports v2.2.0");
 check(mcp.executed.includes("search_docs") && !mcp.executed.includes("delete_workspace_file"), "MCP executes allowed call only");
 check(JSON.stringify(mcp).includes("approval_required") && JSON.stringify(mcp).includes("blocked"), "MCP example covers approval and blocked decisions");
 
 const coding = json(process.execPath, ["examples/real-frameworks/coding-agent-boundary/run.js"]);
-check(coding.ok && coding.ruleoakCoreRelease === "2.1.0", "Coding-agent boundary reports v2.1.0");
+check(coding.ok && coding.ruleoakCoreRelease === "2.2.0", "Coding-agent boundary reports v2.2.0");
 check(coding.executed.includes("read_file") && coding.paused.includes("push_to_main") && coding.blocked.includes("shell_rm_rf"), "Coding-agent boundary covers execute/pause/block");
 
 const docsText = ["README.md", "docs/adapters/real-framework-examples.md", "docs/adapters/real-adapter-pack.md"]

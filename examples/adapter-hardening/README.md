@@ -1,6 +1,6 @@
 # Adapter hardening example
 
-This example demonstrates the RuleOak Core v2.1.0 adapter layer:
+This example demonstrates the RuleOak Core v2.2.0 adapter layer:
 
 - LangGraph-style governed node wrapper
 - LangGraph-style governed tool spec

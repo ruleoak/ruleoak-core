@@ -1,12 +1,12 @@
 # RuleOak Governance Protocol v1 Hardening
 
-RuleOak Governance Protocol v1 is the stable governance-record contract used by RuleOak Core public releases and RuleOak Core v2.1.0.
+RuleOak Governance Protocol v1 is the stable governance-record contract used by RuleOak Core public releases and RuleOak Core v2.2.0.
 
 Public release wording remains:
 
-- Latest public Core release: **v2.1.0**
+- Latest public Core release: **v2.2.0**
 - Earlier public baseline: **v1.0.1**
-- Anything after v2.1.0 should be described only as unreleased future work until a new GitHub release is published.
+- Anything after v2.2.0 should be described only as unreleased future work until a new GitHub release is published.
 
 ## What protocol hardening adds
 

@@ -1,6 +1,6 @@
 # Post-launch Feedback Loop
 
-The first v2.1.0 launch goal is not maximum traffic. The goal is to discover whether developers understand RuleOak quickly.
+The first v2.2.0 launch goal is not maximum traffic. The goal is to discover whether developers understand RuleOak quickly.
 
 ## First feedback questions
 

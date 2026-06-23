@@ -26,4 +26,4 @@ What the sequence proves:
 4. Risky actions can require approval.
 5. Audit records and evidence bundles are replayable.
 
-Public-release note: the latest public GitHub release remains **v2.1.0**. These quickstarts are RuleOak Core v2.1.0 adoption assets for a future release.
+Public-release note: the latest public GitHub release remains **v2.2.0**. These quickstarts are RuleOak Core v2.2.0 adoption assets for a future release.

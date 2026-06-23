@@ -1,6 +1,6 @@
 # Personal Local-First Assistant Governance
 
-This RuleOak Core v2.1.0 reference vertical shows RuleOak governing a personal local-first assistant.
+This RuleOak Core v2.2.0 reference vertical shows RuleOak governing a personal local-first assistant.
 
 Run:
 

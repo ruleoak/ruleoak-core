@@ -3,17 +3,17 @@
   "purpose": "policy-pack-integrity",
   "algorithm": "ed25519",
   "hashAlgorithm": "sha256",
-  "keyId": "ruleoak-v2.1.0-local-demo-ed25519",
+  "keyId": "ruleoak-v2.2.0-local-demo-ed25519",
   "signedAt": "2026-06-19T00:00:00.000Z",
-  "payloadHash": "09241110eef89d4c4ed03b04e2d20481cb703a8e11d7889a722e40bdaa78a22f",
-  "signature": "3QLhu4pD9H+YoTbLJJ+tY3Vg8QOY72MztOmWwUvgMyniuoUAz/iQqL/2zVym6KrIOiU1sMi+ODplHp1vsr/0Cg==",
+  "payloadHash": "54e51a5ec71be5fde597d6dfe62532584f521548038038cbe1d825e616560993",
+  "signature": "M7QWidbCtxUGhSZb6vhAm/yNTYxTje9UPU2/QoZBbh1EbMEJziNsQaA2e2MPEoOMCq9aBgx7Km0t4sGiYs/uAQ==",
   "target": {
     "type": "RuleOakPolicyPackManifest",
     "policyPackId": "filesystem-safe",
     "policyPackVersion": "1.0.0",
-    "manifestHash": "09241110eef89d4c4ed03b04e2d20481cb703a8e11d7889a722e40bdaa78a22f"
+    "manifestHash": "54e51a5ec71be5fde597d6dfe62532584f521548038038cbe1d825e616560993"
   },
-  "latestPublicCoreRelease": "v2.1.0",
+  "latestPublicCoreRelease": "v2.2.0",
   "earlierPublicBaseline": "v1.0.1",
-  "developmentTrack": "RuleOak Core v2.1.0 release"
+  "developmentTrack": "RuleOak Core v2.2.0 release"
 }

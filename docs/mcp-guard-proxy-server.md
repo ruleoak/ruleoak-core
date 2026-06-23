@@ -1,6 +1,6 @@
 # RuleOak MCP Guard Proxy Server
 
-RuleOak Core v2.1.0 includes a local MCP Guard Proxy server mode.
+RuleOak Core v2.2.0 includes a local MCP Guard Proxy server mode.
 
 Pattern:
 
@@ -22,4 +22,4 @@ npm run mcp:proxy:server:demo
 
 ## Safety boundary
 
-The v2.1.0 server demo is local-only. It does not connect to an external MCP server, does not use credentials, and does not execute destructive tools. It is a concrete local proxy shape for future production adapters.
+The v2.2.0 server demo is local-only. It does not connect to an external MCP server, does not use credentials, and does not execute destructive tools. It is a concrete local proxy shape for future production adapters.

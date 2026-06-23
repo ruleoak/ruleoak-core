@@ -13,8 +13,8 @@ export const PROTOCOL_CONFORMANCE_KIT = Object.freeze({
   name: "ruleoak-protocol-conformance-kit",
   kitVersion: "1.0.0",
   protocol: GOVERNANCE_SCHEMA_VERSION,
-  latestPublicCoreRelease: "v2.1.0",
-  status: "RuleOak Core v2.1.0 release / future release work"
+  latestPublicCoreRelease: "v2.2.0",
+  status: "RuleOak Core v2.2.0 release / future release work"
 });
 
 function readJson(file) {
@@ -54,7 +54,7 @@ function checkManifest(kitRoot, errors) {
   const manifest = readJson(manifestPath);
   assertCompat(manifest.kit === PROTOCOL_CONFORMANCE_KIT.name, "manifest.kit mismatch", errors);
   assertCompat(manifest.protocol === GOVERNANCE_SCHEMA_VERSION, `manifest.protocol must be ${GOVERNANCE_SCHEMA_VERSION}`, errors);
-  assertCompat(manifest.latestPublicCoreRelease === "v2.1.0", "manifest must keep latest public Core release at v2.1.0", errors);
+  assertCompat(manifest.latestPublicCoreRelease === "v2.2.0", "manifest must keep latest public Core release at v2.2.0", errors);
   assertCompat(Array.isArray(manifest.requiredChecks) && manifest.requiredChecks.length >= 5, "manifest.requiredChecks is incomplete", errors);
   return manifest;
 }
@@ -184,7 +184,7 @@ export function runProtocolConformanceKit({ kitRoot = resolve("protocol-conforma
     kitRoot: resolvedKitRoot,
     protocol: GOVERNANCE_SCHEMA_VERSION,
     kitVersion: manifest?.kitVersion || PROTOCOL_CONFORMANCE_KIT.kitVersion,
-    latestPublicCoreRelease: manifest?.latestPublicCoreRelease || "v2.1.0",
+    latestPublicCoreRelease: manifest?.latestPublicCoreRelease || "v2.2.0",
     goldenRecordCount: observedGoldenRecords.length,
     checks: manifest?.requiredChecks || []
   };

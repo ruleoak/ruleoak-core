@@ -1,9 +1,9 @@
-# GitHub Release Guidance for v2.1.0
+# GitHub Release Guidance for v2.2.0
 
 ## Release title
 
 ```text
-RuleOak Core v2.1.0 — Governance for AI tool calls
+RuleOak Core v2.2.0 — Governance for AI tool calls
 ```
 
 ## Release description

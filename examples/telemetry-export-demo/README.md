@@ -1,6 +1,6 @@
 # Telemetry Export Demo
 
-RuleOak Core v2.1.0 can export local governance reports into OpenTelemetry-style JSON records.
+RuleOak Core v2.2.0 can export local governance reports into OpenTelemetry-style JSON records.
 
 Run:
 

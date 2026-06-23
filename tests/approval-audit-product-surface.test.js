@@ -20,7 +20,7 @@ assert.ok(existsSync(result.auditCatalogPath));
 assert.ok(result.reportCount >= 3, "expected reports from reference verticals");
 assert.ok(result.approvalCount >= 1, "expected approval requests from reference verticals");
 assert.equal(result.surface.schema, "ruleoak.approval_audit_product_surface.v1");
-assert.equal(result.surface.latestPublicCoreRelease, "v2.1.0");
+assert.equal(result.surface.latestPublicCoreRelease, "v2.2.0");
 assert.ok(result.surface.actions.requestEvidence.includes("approval:request-evidence"));
 assert.ok(result.surface.summary.audit.verification);
 assert.ok(result.surface.summary.packets.count >= result.approvalCount);

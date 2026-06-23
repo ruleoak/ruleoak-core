@@ -99,3 +99,14 @@ npm run personal:local-assistant-governance
 ```
 
 Shows local-first personal assistant reads, draft creation, external-send approval, private-upload blocking, and audit output.
+
+## High-risk agent action demos
+
+```bash
+npm run agentic:high-risk-demos
+npm run test:high-risk-demos
+```
+
+Shows seven public, local, deterministic demos: protected-folder delete, shell command, database mutation, dangerous MCP tool, external email-like action, poisoned retrieved context, and risky skill/plugin install.
+
+See `examples/high-risk-agent-actions/` and `docs/use-cases/high-risk-agent-action-demos.md`.

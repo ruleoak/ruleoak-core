@@ -1,10 +1,10 @@
-# RuleOak Core v2.1.0 Public Release Checklist
+# RuleOak Core v2.2.0 Public Release Checklist
 
-Use this checklist before publishing RuleOak Core v2.1.0 or announcing it externally.
+Use this checklist before publishing RuleOak Core v2.2.0 or announcing it externally.
 
 ## Release identity
 
-- [ ] Latest public release is stated as **v2.1.0**.
+- [ ] Latest public release is stated as **v2.2.0**.
 - [ ] Previous public release is stated as **v2.0.3** only where history is useful.
 - [ ] Earlier public baseline is stated as **v1.0.1** only where history is useful.
 - [ ] No page implies a newer public major release.

@@ -1,6 +1,6 @@
 # Connector Reliability Pack
 
-This RuleOak Core v2.1.0 release includes the read-only connector layer used by GitHub and Jira evidence collection.
+This RuleOak Core v2.2.0 release includes the read-only connector layer used by GitHub and Jira evidence collection.
 
 The goal is not to make connectors powerful. The goal is to make evidence collection safer, more predictable, and easier to audit.
 

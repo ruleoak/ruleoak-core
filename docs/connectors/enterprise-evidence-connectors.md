@@ -1,8 +1,8 @@
 # Enterprise Evidence Connectors
 
-RuleOak Core v2.1.0 includes a broader enterprise evidence connector layer for serious governed workflows.
+RuleOak Core v2.2.0 includes a broader enterprise evidence connector layer for serious governed workflows.
 
-This is **RuleOak Core v2.1.0**. The latest public RuleOak Core release remains **v2.1.0**. The connector contract is intended to mature without changing the public release history.
+This is **RuleOak Core v2.2.0**. The latest public RuleOak Core release remains **v2.2.0**. The connector contract is intended to mature without changing the public release history.
 
 ## What this layer adds
 

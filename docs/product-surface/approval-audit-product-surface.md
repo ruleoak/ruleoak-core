@@ -1,6 +1,6 @@
 # Approval and Audit Product Surface
 
-RuleOak Core v2.1.0 includes a local-first approval and audit product surface for developers and external evaluators who want to inspect governed AI workflows without reading every JSON artifact by hand.
+RuleOak Core v2.2.0 includes a local-first approval and audit product surface for developers and external evaluators who want to inspect governed AI workflows without reading every JSON artifact by hand.
 
 It combines:
 
@@ -41,7 +41,7 @@ The packet contains the local dashboard, approval state, approval inbox HTML, an
 
 ## What this is
 
-This is a local developer/admin product surface for RuleOak Core v2.1.0. It helps users understand how approval-required AI actions, audit reports, evidence bundles, and exported packets fit together.
+This is a local developer/admin product surface for RuleOak Core v2.2.0. It helps users understand how approval-required AI actions, audit reports, evidence bundles, and exported packets fit together.
 
 ## What this is not
 

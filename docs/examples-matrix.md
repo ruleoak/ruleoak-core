@@ -65,7 +65,7 @@ See `docs/observability/report-viewer-and-telemetry.md`.
 
 ## LangGraph and CrewAI Adapter Samples
 
-RuleOak Core v2.1.0 includes dependency-free adapter samples that show how to wrap agent-framework tool calls with RuleOak Tool Guard.
+RuleOak Core v2.2.0 includes dependency-free adapter samples that show how to wrap agent-framework tool calls with RuleOak Tool Guard.
 
 ```bash
 npm run adapter:demo
@@ -75,7 +75,7 @@ npm run test:adapters
 
 ## MCP Guard Proxy Prototype
 
-RuleOak Core v2.1.0 includes a local in-process MCP Guard Proxy prototype for JSON-RPC `tools/call` requests.
+RuleOak Core v2.2.0 includes a local in-process MCP Guard Proxy prototype for JSON-RPC `tools/call` requests.
 
 ```bash
 npm run mcp:proxy:demo
@@ -84,7 +84,7 @@ npm run test:mcp-proxy
 
 The proxy demonstrates how RuleOak can sit between an AI client and MCP-style tool execution.
 
-## v2.1.0 user guides
+## v2.2.0 user guides
 
 - [Govern an AI tool call in 10 minutes](integrations/govern-ai-tool-call-in-10-minutes.md)
 - [Protocol compatibility statement](protocol/compatibility-statement.md)
@@ -97,7 +97,7 @@ Run `npm run sre:monitoring-change` to see the complete SRE reference vertical f
 
 ## Reference vertical expansion
 
-The additional RuleOak Core v2.1.0 verticals prove that RuleOak is a cross-domain governance layer, not only an SRE/audit demo:
+The additional RuleOak Core v2.2.0 verticals prove that RuleOak is a cross-domain governance layer, not only an SRE/audit demo:
 
 ```bash
 npm run coding:agent-governance

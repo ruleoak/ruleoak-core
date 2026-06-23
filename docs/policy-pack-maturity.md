@@ -1,12 +1,12 @@
 # RuleOak Policy Pack Maturity
 
-RuleOak Core v2.1.0 turns policy packs from simple configuration lists into versioned governance assets.
+RuleOak Core v2.2.0 turns policy packs from simple configuration lists into versioned governance assets.
 
 Public release wording remains unchanged:
 
-- Latest public RuleOak Core release: **v2.1.0**
+- Latest public RuleOak Core release: **v2.2.0**
 - Earlier public baseline: **v1.0.1**
-- Policy-pack maturity: **included in RuleOak Core v2.1.0**
+- Policy-pack maturity: **included in RuleOak Core v2.2.0**
 
 ## What a mature policy pack contains
 
@@ -15,7 +15,7 @@ Each pack now uses `ruleoak.policy_pack.v1` and includes:
 - `schemaVersion`
 - semantic pack `version`
 - compatibility metadata for `ruleoak.governance.v1`
-- latest public Core release marker `v2.1.0`
+- latest public Core release marker `v2.2.0`
 - allow / approval-required / blocked tool decisions
 - pack-local `scenarioTests`
 - metadata for maturity, status, owner, and examples

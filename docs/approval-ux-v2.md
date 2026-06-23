@@ -1,6 +1,6 @@
 # Approval UX v2
 
-RuleOak Approval UX v2 is a RuleOak Core v2.1.0 reference for reviewing approval-required AI tool calls before they become actions.
+RuleOak Approval UX v2 is a RuleOak Core v2.2.0 reference for reviewing approval-required AI tool calls before they become actions.
 
 It is intentionally local-first: it reads RuleOak reports and approval state from local files, writes reviewer decisions locally, and does not execute approved actions. It is not a replacement for enterprise IAM, RBAC, SSO, or workflow platforms.
 

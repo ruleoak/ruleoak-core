@@ -63,10 +63,10 @@ Message:
 
 ## Demo asset
 
-Use only the current v2.1.0 demo asset:
+Use only the current v2.2.0 demo asset:
 
 ```text
-docs/assets/demo/ruleoak-v2.1.0-demo.gif
+docs/assets/demo/ruleoak-v2.2.0-demo.gif
 ```
 
 Older demo GIFs were removed to avoid public-release confusion.

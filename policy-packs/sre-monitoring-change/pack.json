@@ -8,9 +8,9 @@
   "compatibility": {
     "policyPackSchema": "ruleoak.policy_pack.v1",
     "governanceProtocol": "ruleoak.governance.v1",
-    "latestPublicCoreRelease": "v2.1.0",
+    "latestPublicCoreRelease": "v2.2.0",
     "earlierPublicBaseline": "v1.0.1",
-    "developmentTrack": "RuleOak Core v2.1.0 release",
+    "developmentTrack": "RuleOak Core v2.2.0 release",
     "supportsCoreMajor": [
       "2",
       "future-3"
@@ -122,6 +122,6 @@
     "maturity": "reference-vertical",
     "owner": "RuleOak maintainers",
     "status": "public-release",
-    "publicCoreBaseline": "v2.1.0"
+    "publicCoreBaseline": "v2.2.0"
   }
 }

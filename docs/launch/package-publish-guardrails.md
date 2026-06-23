@@ -1,6 +1,6 @@
 # Package Publish Guardrails
 
-Before publishing RuleOak Core v2.1.0 to a package registry or attaching a release artifact:
+Before publishing RuleOak Core v2.2.0 to a package registry or attaching a release artifact:
 
 ```bash
 npm run launch:check
@@ -25,7 +25,7 @@ Check the tarball for:
 - no credentials;
 - no real enterprise data;
 - clear license and notice files;
-- README states latest public release as v2.1.0;
+- README states latest public release as v2.2.0;
 - demo GIF is included intentionally;
 
 ## Private keys

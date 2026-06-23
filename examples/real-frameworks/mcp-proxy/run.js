@@ -2,8 +2,8 @@
 import { McpGuardProxyServer } from "../../../src/guard/mcp-proxy-server.js";
 
 const manifest = {
-  name: "ruleoak-v2.1.0-real-mcp-proxy-example",
-  version: "2.1.0",
+  name: "ruleoak-v2.2.0-real-mcp-proxy-example",
+  version: "2.2.0",
   tools: [
     { name: "search_docs", description: "Read local documentation", risk: "low" },
     { name: "send_external_message", description: "Send a message outside the workspace", risk: "medium" },
@@ -37,13 +37,13 @@ async function rpc(id, name) {
 }
 
 const calls = [await rpc(1, "search_docs"), await rpc(2, "send_external_message"), await rpc(3, "delete_workspace_file")];
-const report = server.report({ title: "RuleOak v2.1.0 real MCP proxy example" });
+const report = server.report({ title: "RuleOak v2.2.0 real MCP proxy example" });
 await server.stop();
 
 console.log(JSON.stringify({
   ok: true,
   adapter: "mcp-local-jsonrpc",
-  ruleoakCoreRelease: "2.1.0",
+  ruleoakCoreRelease: "2.2.0",
   address,
   executed,
   calls,

@@ -19,7 +19,7 @@ const report = lab.runScenario({
   packIds: ["filesystem-safe", "external-communication", "ticketing-write-approval", "cloud-llm-approval", "pii-redaction"],
   scenario
 });
-assert.equal(report.runtimeVersion, "2.1.0");
+assert.equal(report.runtimeVersion, "2.2.0");
 assert.equal(report.summary.failedExpectations, 0);
 assert.equal(report.decisions.find((item) => item.toolId === "search_docs").decision, "allowed");
 assert.equal(report.decisions.find((item) => item.toolId === "send_external_message").decision, "approval_required");

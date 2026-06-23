@@ -14,7 +14,7 @@ const sampleReports = [
 assert.ok(sampleReports.length >= 2, "expected at least two reference reports");
 const catalog = buildAuditViewerCatalog(sampleReports, { root: process.cwd() });
 assert.equal(catalog.schema, "ruleoak.audit_report_viewer.v2");
-assert.equal(catalog.latestPublicCoreRelease, "v2.1.0");
+assert.equal(catalog.latestPublicCoreRelease, "v2.2.0");
 assert.equal(catalog.reportCount, sampleReports.length);
 assert.ok(catalog.filters.policyDecisions.length > 0);
 assert.ok(catalog.reports[0].reportHash.length === 64);

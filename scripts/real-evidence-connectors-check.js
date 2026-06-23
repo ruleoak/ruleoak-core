@@ -6,7 +6,7 @@ const checks = [];
 function check(name, ok, details = "") { checks.push({ name, ok: Boolean(ok), details }); }
 
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
-check("core release remains v2.1.0", pkg.version === "2.1.0", pkg.version);
+check("core release remains v2.2.0", pkg.version === "2.2.0", pkg.version);
 check("real connector source exists", existsSync("src/connectors/real-enterprise-api-connectors.js"));
 check("real connector example exists", existsSync("examples/real-evidence-connectors-v1/run.js"));
 check("real connector docs exist", existsSync("docs/connectors/real-evidence-connectors-v1.md"));
@@ -16,7 +16,7 @@ const source = readFileSync("src/connectors/real-enterprise-api-connectors.js", 
 for (const name of ["ServiceNowApiReadOnlyConnector", "ConfluenceApiReadOnlyConnector", "GitLabApiReadOnlyConnector", "PrometheusApiReadOnlyConnector", "GrafanaApiReadOnlyConnector"]) {
   check(`${name} exported`, source.includes(`class ${name}`) || source.includes(`export class ${name}`));
 }
-check("manifest uses v2.1.0", source.includes('coreRelease: "v2.1.0"'));
+check("manifest uses v2.2.0", source.includes('coreRelease: "v2.2.0"'));
 check("connector boundary declares read-only", source.includes('mode: "read_only"') && source.includes('writes: false'));
 
 const run = spawnSync(process.execPath, ["examples/real-evidence-connectors-v1/run.js"], { encoding: "utf8" });
@@ -26,7 +26,7 @@ if (existsSync("examples/real-evidence-connectors-v1/out/real-evidence-connector
   const report = JSON.parse(readFileSync("examples/real-evidence-connectors-v1/out/real-evidence-connectors-report.json", "utf8"));
   check("example report has five connectors", report.connectorCount === 5, String(report.connectorCount));
   check("example report has evidence", report.evidenceCount >= 10, String(report.evidenceCount));
-  check("example report uses v2.1.0", report.coreRelease === "v2.1.0", report.coreRelease);
+  check("example report uses v2.2.0", report.coreRelease === "v2.2.0", report.coreRelease);
 }
 
 const failed = checks.filter((item) => !item.ok);

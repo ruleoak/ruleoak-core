@@ -36,7 +36,7 @@ assert.equal(evidence.hash, evidenceSame.hash, "canonical evidence hash must be 
 assert.equal(recordHash(evidence), evidence.hash, "recordHash ignores integrity fields and verifies evidence hash");
 assert.equal(canonicalJson({ b: 1, a: 2 }), canonicalJson({ a: 2, b: 1 }));
 
-const envelope = createProtocolEnvelope(run, { sdk: "ruleoak-core", sdkVersion: "2.1.0" });
+const envelope = createProtocolEnvelope(run, { sdk: "ruleoak-core", sdkVersion: "2.2.0" });
 assert.equal(envelope.protocol, "ruleoak.governance.v1");
 assert.equal(envelope.kind, "RunRecord");
 

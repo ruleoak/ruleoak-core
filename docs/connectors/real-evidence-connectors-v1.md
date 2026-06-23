@@ -1,6 +1,6 @@
 # Real Evidence Connectors v1
 
-RuleOak Core v2.1.0 includes a first real-connector layer for read-only enterprise evidence collection.
+RuleOak Core v2.2.0 includes a first real-connector layer for read-only enterprise evidence collection.
 
 This is different from the fixture-backed enterprise connector catalog:
 

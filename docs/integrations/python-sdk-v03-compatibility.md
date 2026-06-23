@@ -1,6 +1,6 @@
 # ruleoak-py v0.3 Compatibility
 
-This RuleOak Core v2.1.0 release recognizes `ruleoak-py` v0.3 as the current Python SDK compatibility target.
+This RuleOak Core v2.2.0 release recognizes `ruleoak-py` v0.3 as the current Python SDK compatibility target.
 
 The compatibility boundary is simple:
 

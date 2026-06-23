@@ -3,17 +3,17 @@
   "purpose": "policy-pack-integrity",
   "algorithm": "ed25519",
   "hashAlgorithm": "sha256",
-  "keyId": "ruleoak-v2.1.0-local-demo-ed25519",
+  "keyId": "ruleoak-v2.2.0-local-demo-ed25519",
   "signedAt": "2026-06-19T00:00:00.000Z",
-  "payloadHash": "3eaa8c1a8867a7ce1d9acb547adb09343f667e30f1d59315d49631f3209c1d8f",
-  "signature": "Iu9g728fXK3tc63DR3RVl+rEMrOpLUq/47stfZSQcw6H38g+nLG97n0GM3+ETa237IAxxI6eLEz/NBgivUb0AA==",
+  "payloadHash": "272273dfcbedb4eeee5ebc4dc727c53b3b54b5b563d7b3dda85ded78d3080359",
+  "signature": "UyB0/cWy11ppnIffkydvK9BWj4CLrmH0IrBpzAWOZmcnsqunRRjnGHGDXinfiPg+4LZtBeg6KrkGvh/pPLP2Aw==",
   "target": {
     "type": "RuleOakPolicyPackManifest",
     "policyPackId": "cloud-llm-approval",
     "policyPackVersion": "1.0.0",
-    "manifestHash": "3eaa8c1a8867a7ce1d9acb547adb09343f667e30f1d59315d49631f3209c1d8f"
+    "manifestHash": "272273dfcbedb4eeee5ebc4dc727c53b3b54b5b563d7b3dda85ded78d3080359"
   },
-  "latestPublicCoreRelease": "v2.1.0",
+  "latestPublicCoreRelease": "v2.2.0",
   "earlierPublicBaseline": "v1.0.1",
-  "developmentTrack": "RuleOak Core v2.1.0 release"
+  "developmentTrack": "RuleOak Core v2.2.0 release"
 }

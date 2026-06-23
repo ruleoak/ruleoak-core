@@ -1,8 +1,24 @@
 # Release Notes
 
-## RuleOak Core v2.1.0
 
-RuleOak Core v2.1.0 is the public developer release for adding governance to AI tool calls. It consolidates protocol conformance, policy packs, adapter examples, approval UX, audit reporting, signed integrity, real evidence connector foundations, and a local approval/audit product surface into a clean external package.
+## v2.2.0 Developer Preview — Agent Firewall + Flight Recorder
+
+This preview prepares RuleOak for public agentic adoption:
+
+- Agentic quickstart: `npm run agentic:quickstart`
+- Public demo: `npm run agentic:public-demo`
+- Agentic conformance kit: `npm run agentic:conformance`
+- Seven release-ready architecture diagrams
+- Explicit AGPL/commercial and permissive-protocol license boundary
+- `ruleoak-py` v0.5.0 repo-ready Python bridge
+- `ruleoak-agentic-skills` v0.3.0 repo-ready governed skill package
+
+Release message: **Agent Firewall + Flight Recorder for AI agents**.
+
+
+## RuleOak Core v2.2.0
+
+RuleOak Core v2.2.0 is the public developer release for adding governance to AI tool calls. It consolidates protocol conformance, policy packs, adapter examples, approval UX, audit reporting, signed integrity, real evidence connector foundations, and a local approval/audit product surface into a clean external package.
 
 ### Highlights
 
@@ -38,7 +54,7 @@ npm pack --dry-run
 
 ### Claim boundary
 
-RuleOak Core v2.1.0 provides a tested governance boundary for AI tool calls. It is not a certified compliance product, hosted control plane, OS sandbox, or guarantee that an AI system is safe.
+RuleOak Core v2.2.0 provides a tested governance boundary for AI tool calls. It is not a certified compliance product, hosted control plane, OS sandbox, or guarantee that an AI system is safe.
 
 ### Validation before publishing
 

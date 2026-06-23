@@ -1,0 +1,10 @@
+{
+  "name": "@ruleoak/adapter-types",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "MIT adapter envelope types for RuleOak-compatible agent projects.",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

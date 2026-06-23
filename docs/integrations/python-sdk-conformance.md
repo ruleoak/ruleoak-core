@@ -1,6 +1,6 @@
 # ruleoak-py protocol conformance
 
-RuleOak Core v2.1.0 includes a conformance target for Python SDK records.
+RuleOak Core v2.2.0 includes a conformance target for Python SDK records.
 
 The goal is simple:
 

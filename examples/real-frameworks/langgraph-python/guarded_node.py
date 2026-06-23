@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""RuleOak v2.1.0 LangGraph real-framework-ready example.
+"""RuleOak v2.2.0 LangGraph real-framework-ready example.
 
 The example is intentionally runnable without LangGraph installed. When LangGraph is
 available, the same guarded function can be used as a node/tool wrapper. The point is
@@ -44,7 +44,7 @@ def governance_record(action: str, subject: str):
         "reason": decision["reason"],
         "createdAt": utc_now(),
         "metadata": {
-            "ruleoakCoreRelease": "2.1.0",
+            "ruleoakCoreRelease": "2.2.0",
             "adapter": "langgraph-python-real-framework-ready",
             "frameworkInstalled": HAS_LANGGRAPH,
             "boundary": "RuleOak policy decision is evaluated before LangGraph node/tool execution",
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     summary = {
         "ok": True,
         "adapter": "langgraph-python",
-        "ruleoakCoreRelease": "2.1.0",
+        "ruleoakCoreRelease": "2.2.0",
         "langgraphInstalled": HAS_LANGGRAPH,
         "mode": "real-framework-ready" if HAS_LANGGRAPH else "optional-dependency-dry-run",
         "summary": {

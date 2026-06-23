@@ -12,7 +12,7 @@ const requiredDocs = [
 for (const path of requiredDocs) assert.ok(existsSync(path), `${path} should exist`);
 
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
-assert.match(pkg.version, /^(?:2\.1\.0|2\.(?:[6-9]|10)\.0|3\.\d+\.0)$/);
+assert.match(pkg.version, /^(?:2\.2\.0|2\.(?:[3-9]|10)\.0|3\.\d+\.0)$/);
 assert.ok(pkg.scripts["validate:release"], "validate:release script should exist");
 assert.ok(pkg.scripts["compatibility:matrix"], "compatibility:matrix script should exist");
 

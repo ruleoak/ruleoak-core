@@ -17,7 +17,7 @@ RuleOak Core is a local-first governance layer for AI tool calls. It sits betwee
 ## Social / GitHub release copy
 
 ```text
-RuleOak Core v2.1.0 is out: governance for AI tool calls.
+RuleOak Core v2.2.0 is out: governance for AI tool calls.
 
 - block dangerous tool calls before execution
 - require approval for risky actions

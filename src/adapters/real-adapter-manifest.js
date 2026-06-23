@@ -1,7 +1,7 @@
 export function realAdapterManifest() {
   return {
     schema: "ruleoak.real_adapter_pack.v1",
-    version: "2.1.0",
+    version: "2.2.0",
     adapters: [
       {
         id: "langgraph-python",

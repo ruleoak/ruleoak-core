@@ -37,4 +37,4 @@ if (violations.length) {
   console.error(JSON.stringify({ ok: false, violations }, null, 2));
   process.exit(1);
 }
-console.log(JSON.stringify({ ok: true, checkedFiles: files.length, latestPublicRelease: 'v2.1.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, checkedFiles: files.length, latestPublicRelease: 'v2.2.0' }, null, 2));

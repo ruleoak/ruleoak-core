@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""RuleOak v2.1.0 CrewAI real-framework-ready example."""
+"""RuleOak v2.2.0 CrewAI real-framework-ready example."""
 import importlib.util
 import json
 from datetime import datetime, timezone
@@ -40,7 +40,7 @@ def guarded_crewai_tool(action, payload=None):
         "reason": decision["reason"],
         "createdAt": utc_now(),
         "metadata": {
-            "ruleoakCoreRelease": "2.1.0",
+            "ruleoakCoreRelease": "2.2.0",
             "adapter": "crewai-python-real-framework-ready",
             "frameworkInstalled": HAS_CREWAI,
             "boundary": "RuleOak policy decision is evaluated before CrewAI tool execution",
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     print(json.dumps({
         "ok": True,
         "adapter": "crewai-python",
-        "ruleoakCoreRelease": "2.1.0",
+        "ruleoakCoreRelease": "2.2.0",
         "crewaiInstalled": HAS_CREWAI,
         "mode": "real-framework-ready" if HAS_CREWAI else "optional-dependency-dry-run",
         "summary": {

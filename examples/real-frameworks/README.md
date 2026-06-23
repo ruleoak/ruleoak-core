@@ -1,6 +1,6 @@
 # Real framework examples
 
-RuleOak Core v2.1.0 includes real-framework-ready examples for developers who already use LangGraph, CrewAI, MCP-style tools, or coding-agent loops.
+RuleOak Core v2.2.0 includes real-framework-ready examples for developers who already use LangGraph, CrewAI, MCP-style tools, or coding-agent loops.
 
 These examples are intentionally external-developer focused:
 

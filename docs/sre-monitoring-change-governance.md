@@ -1,6 +1,6 @@
 # SRE Monitoring Change Governance Reference Vertical
 
-RuleOak Core v2.1.0 includes a serious reference vertical for SRE and microservices monitoring audit scenarios.
+RuleOak Core v2.2.0 includes a serious reference vertical for SRE and microservices monitoring audit scenarios.
 
 The goal is to show the full governance loop for a production monitoring threshold change:
 
@@ -16,7 +16,7 @@ request
 
 ## Version positioning
 
-The latest public RuleOak Core release is **v2.1.0** and the earlier public baseline is **v1.0.1**. This SRE reference vertical is **RuleOak Core v2.1.0**. It should not be described as a public future major release until you actually publish a future major release.
+The latest public RuleOak Core release is **v2.2.0** and the earlier public baseline is **v1.0.1**. This SRE reference vertical is **RuleOak Core v2.2.0**. It should not be described as a public future major release until you actually publish a future major release.
 
 ## Run the reference vertical
 

@@ -1,8 +1,8 @@
 # Signed Policy Packs and Evidence Integrity
 
-RuleOak Core v2.1.0 includes an offline integrity layer for policy packs, evidence bundles, and append-only audit chains.
+RuleOak Core v2.2.0 includes an offline integrity layer for policy packs, evidence bundles, and append-only audit chains.
 
-This is **RuleOak Core v2.1.0**. Public RuleOak Core documentation should still treat **v2.1.0** as the latest released Core and **v1.0.1** as the earlier public baseline until a future future major release is intentionally published.
+This is **RuleOak Core v2.2.0**. Public RuleOak Core documentation should still treat **v2.2.0** as the latest released Core and **v1.0.1** as the earlier public baseline until a future future major release is intentionally published.
 
 ## What this protects
 

@@ -30,9 +30,9 @@ RuleOak can add governance without redesigning the application or replacing the 
 
 ## Adapter hardening
 
-See `docs/adapters/adapter-hardening.md` for the RuleOak Core v2.1.0 adapter conformance layer, LangGraph/CrewAI wrappers, and MCP local proxy client helper.
+See `docs/adapters/adapter-hardening.md` for the RuleOak Core v2.2.0 adapter conformance layer, LangGraph/CrewAI wrappers, and MCP local proxy client helper.
 
 
 ## Real framework examples
 
-For the v2.1.0 public developer release, see `docs/adapters/real-framework-examples.md` and `examples/real-frameworks/`. These examples add a coding-agent boundary and provide more explicit LangGraph, CrewAI, and MCP paths for external developers.
+For the v2.2.0 public developer release, see `docs/adapters/real-framework-examples.md` and `examples/real-frameworks/`. These examples add a coding-agent boundary and provide more explicit LangGraph, CrewAI, and MCP paths for external developers.

@@ -29,7 +29,7 @@ const connectors = [
 
 const catalog = enterpriseConnectorCatalog();
 assert.equal(catalog.protocol, "ruleoak.enterprise_evidence_connectors.v1");
-assert.equal(catalog.latestPublicCoreRelease, "v2.1.0");
+assert.equal(catalog.latestPublicCoreRelease, "v2.2.0");
 assert.ok(catalog.connectorCount >= 10, "catalog should include GitHub/Jira plus enterprise connectors");
 assert.ok(catalog.recommendedOrder.includes("servicenow_readonly"));
 

@@ -1,239 +1,153 @@
-<p align="center">
-  <img src="docs/assets/brand/ruleoak-logo-transparent.png" alt="RuleOak" width="360">
-</p>
+# RuleOak Core v2.2.0
 
-# RuleOak Core v2.1.0
+## Agent Firewall + Flight Recorder for AI agents
 
-> **Govern AI tool calls before they run.**
->
-> RuleOak Core is a TypeScript runtime library for governing AI tool calls before execution. It provides guard and policy checks, approval gates, evidence records, audit reports, and protocol conformance tools.
+RuleOak is an **Agent Firewall** and **Flight Recorder** for AI agents. Before an agent sends, deletes, spends, deploys, or changes production, RuleOak can **block, approve, record, and replay** the action.
 
-```text
-Declare tool call → Evaluate policy → Decide allow / approve / block → Pause for approval when required → Record evidence and audit events → Validate and export audit report
-```
+![RuleOak Agentic Stack](docs/assets/agentic-diagrams/agentic-stack.svg)
 
-RuleOak adds governance for AI tool calls by evaluating proposed actions before execution and recording the decision, evidence, approval state, and audit events.
+## Why RuleOak exists
 
-RuleOak Core is for developers building AI agents, MCP-style tools, LangGraph/CrewAI workflows, local LLM workflows, and vertical AI apps where unchecked tool execution is not acceptable.
+Modern agents can call tools, touch files, send messages, run commands, and use MCP-style tool servers. That creates a new operational question:
 
-- Latest public release: **v2.1.0**
-- Previous public release: **v2.0.3**
-- Earlier public baseline: **v1.0.1**
-- Stable governance protocol: **ruleoak.governance.v1**
-- License: **AGPL-3.0-or-later**
+> What did the agent try to do, who approved it, what policy applied, what evidence was recorded, and can we replay the timeline?
 
-[Website](https://ruleoak.com) · [Start in 10 minutes](docs/adoption/10-minute-quickstart.md) · [Developer usage](docs/adoption/developer-usage.md) · [Governance Protocol v1](docs/protocol/governance-records-v1.md) · [Conformance Kit](docs/protocol/conformance-kit.md) · [Claims language](docs/trust/claims-language.md)
+RuleOak answers this with a local-first developer runtime:
 
----
+- **Agent Firewall** — evaluate tool actions before execution.
+- **Flight Recorder** — write append-only Evidence JSONL for actions and decisions.
+- **Approval gates** — pause risky actions before they execute.
+- **Dry-run mode** — preview dangerous actions without side effects.
+- **MCP Permission Gateway** — inventory and govern MCP-style tools.
+- **Action Replay** — reconstruct what happened from evidence.
+- **Safety CI** — fail unsafe agent/tool configurations.
+- **Trust score and badges** — communicate integration maturity without claiming certification.
 
-## 60-second demo
-
-![RuleOak v2.1.0 demo](docs/assets/demo/ruleoak-v2.1.0-demo.gif)
-
-The demo follows the same sequence used in the quickstart, examples, and documentation:
-
-1. Declare the tool call.
-2. Evaluate policy before execution.
-3. Decide **allow / approve / block**.
-4. Pause for approval when required.
-5. Record evidence and audit events.
-6. Validate and export an audit report.
-
----
-
-## Visual map
-
-Use these diagrams to understand the product quickly before reading every document:
-
-| Topic | Diagram | Related doc |
-|---|---|---|
-| Overall product shape | ![RuleOak Core overview](docs/assets/diagrams/ruleoak-core-overview.png) | [Why RuleOak](docs/why-ruleoak.md) |
-| Governance flow | ![How RuleOak works](docs/assets/diagrams/how-ruleoak-works-5-step-flow.png) | [10-minute quickstart](docs/adoption/10-minute-quickstart.md) |
-| Policy and approvals | ![Policy decision flow and approvals](docs/assets/diagrams/policy-decision-flow-and-approvals.png) | [Policy packs](docs/policy-packs.md) · [Approval inbox](docs/approval-inbox.md) |
-| Protocol and records | ![Protocol and records model](docs/assets/diagrams/protocol-and-records-model.png) | [Governance Protocol v1](docs/protocol/governance-records-v1.md) |
-
-For the full 15-diagram set, see the [Visual guide](docs/diagrams/README.md).
-
----
-
-## Start in 10 minutes
+## 10-minute quickstart
 
 ```bash
 npm install
-npm run quickstart:all
-npm run protocol:conformance
-npm run product:surface:demo
+npm run agentic:quickstart
+npm run agentic:public-demo
+npm run agentic:conformance
 ```
 
-Expected decisions:
+Minimal API example:
 
-| Proposed tool call | Decision | Why |
-|---|---|---|
-| `search_docs` | allowed | read-only local evidence action |
-| `send_external_message` | approval required | external communication needs review |
-| `delete_workspace_file` | denied | destructive action is blocked before execution |
+```js
+import { AgentFirewall, FlightRecorder } from "@ruleoak/core/agentic";
 
-Open generated reports under:
+const recorder = new FlightRecorder({ runId: "demo-run" });
+const firewall = new AgentFirewall({ recorder });
 
-```text
-reports/html/
+await firewall.guardAction(
+  { toolName: "filesystem", operation: "delete", target: "/important/file" },
+  async () => ({ deleted: true })
+);
 ```
 
-For the guided first-run check:
+By default, dangerous unknown actions fail closed or require approval depending on policy.
 
-```bash
-npm run launch
-```
+## Stable developer surfaces in v2.2.0
 
----
+- Evidence JSONL v1: `ruleoak.agentic.evidence.v1`
+- `.ruleoak.yml` v1: `ruleoak.manifest.v1`
+- Agentic public API: `@ruleoak/core/agentic`
+- RuleOak Python bridge v1.0.0 package source under `packages/ruleoak-py/`
+- RuleOak Agentic Skills v1.0.0 package source under `packages/ruleoak-agentic-skills/`
 
-## How developers use RuleOak Core
+## Diagrams
 
-### Path A — GitHub release / source preview
+- [Agentic stack](docs/assets/agentic-diagrams/agentic-stack.svg)
+- [Flight recorder lifecycle](docs/assets/agentic-diagrams/flight-recorder-lifecycle.svg)
+- [MCP permission gateway](docs/assets/agentic-diagrams/mcp-permission-gateway.svg)
+- [Approval and dry-run flow](docs/assets/agentic-diagrams/approval-dry-run-flow.svg)
+- [Manifest and Safety CI flow](docs/assets/agentic-diagrams/manifest-safety-ci-flow.svg)
+- [Agentic skill integration](docs/assets/agentic-diagrams/agentic-skill-integration.svg)
+- [License boundary](docs/assets/agentic-diagrams/license-boundary.svg)
+- [Developer adoption loop](docs/assets/agentic-diagrams/developer-adoption-loop.svg)
 
-Use this path to inspect the code, run examples, review generated governance records, and decide whether RuleOak fits your agent stack.
-
-```bash
-git clone https://github.com/ruleoak/ruleoak-core.git
-cd ruleoak-core
-npm install
-npm run quickstart:all
-npm run protocol:conformance
-```
-
-### Path B — Local package install from release tarball
-
-Use this path to try RuleOak Core inside your own TypeScript or Node.js project before using an npm registry package.
-
-```bash
-cd ruleoak-core
-npm install
-npm pack
-cd ../your-agent-project
-npm install ../ruleoak-core/ruleoak-core-2.1.0.tgz
-```
-
-Then wrap one tool-call boundary in your app and route the proposed action through RuleOak before execution.
-
----
-
-## Developer value
-
-| Developer need | RuleOak provides |
-|---|---|
-| Add governance without redesigning the app | tool-call boundary helpers, guard modules, policy packs, adapter examples |
-| Keep policy outside prompts | explicit guard and policy checks before execution |
-| Pause risky actions | approval gates, reviewer context, approval packets |
-| Block dangerous actions | allow / approval-required / deny decisions before a tool runs |
-| Explain what happened | evidence records, audit events, run records, report records |
-| Validate compatibility | `ruleoak.governance.v1` schemas and conformance kit |
-| Review locally | local reports, Audit Report Viewer v2, offline verification |
-
-RuleOak is not an agent orchestrator. It sits at the action boundary and governs what the agent wants to do.
-
----
-
-## What is included in v2.1.0
-
-| Area | Included |
-|---|---|
-| Runtime library | TypeScript/Node.js modules for governing tool-call requests |
-| Tool Guard | evaluate proposed tool calls before execution |
-| Policy packs | reusable, scenario-tested, signed governance defaults |
-| Approval gates | local approval inbox, reviewer notes, evidence requests, approval packets |
-| Evidence and audit | run, evidence, approval, policy, audit, and report records |
-| Audit reports | JSON/HTML reports, Audit Report Viewer v2, exportable audit packets |
-| Protocol v1 | stable `ruleoak.governance.v1` schemas, golden records, replay checks, conformance kit |
-| Adapter examples | MCP, LangGraph, CrewAI, coding-agent boundary examples |
-| Evidence connectors | read-only GitHub/Jira examples and enterprise connector fixtures |
-| Integrity | signed policy packs, evidence bundles, and audit-chain verification |
-| Safety boundary tests | filesystem, network, command, connector, and MCP safety tests |
-
----
-
-## Quick commands
-
-```bash
-# First-run path
-npm run quickstart:all
-npm run protocol:conformance
-npm run product:surface:demo
-
-# Developer-facing examples
-npm run coding:agent-governance
-npm run rag:answer-governance
-npm run personal:local-assistant-governance
-npm run sre:monitoring-change
-
-# Guards, policy, and protocol proof
-npm run policy:pack:validate
-npm run policy:pack:scenarios
-npm run integrity:verify
-npm run protocol:kit
-
-# Approval and audit proof
-npm run approval:ux:v2:check
-npm run audit:viewer:v2:check
-npm run product:surface:check
-
-# Release validation
-npm run launch:check
-npm run release:public-check
-npm test
-```
-
----
-
-## Protocol Conformance Kit
-
-Use the standalone kit when another SDK, adapter, or vertical app needs to claim compatibility with `ruleoak.governance.v1`:
-
-```bash
-npm run protocol:kit
-npm run protocol:kit:json
-```
-
-Preferred compatibility wording:
-
-> Compatible with `ruleoak.governance.v1` using the RuleOak Protocol Conformance Kit.
-
-Do not call compatibility certified, audited, regulator-approved, or compliance-approved unless you have separate independent evidence.
-
----
-
-## Safety boundary
-
-RuleOak provides a tested governance boundary for tool calls routed through RuleOak. It is an application-level governance boundary, not a complete sandbox or compliance certification. It is not a certified compliance product. It does **not** claim to be:
-
-- a certified compliance product;
-- an externally security-reviewed sandbox;
-- a hosted cloud service;
-- a guarantee that an AI system is safe;
-- a replacement for enterprise security controls.
-
-Use the precise claim:
-
-> RuleOak can block or require approval for dangerous tool calls before execution when integrated into the tool-call path.
-
----
-
-## Trust, security, and licensing
+## Developer docs
 
 Start here:
 
-- [Security model](docs/trust/security-model.md)
-- [Claims language guide](docs/trust/claims-language.md)
-- [AGPL and commercial boundary](docs/trust/agpl-commercial-boundary.md)
-- [Validation matrix](docs/trust/validation-matrix.md)
-- [Release notes](RELEASE_NOTES.md)
-- [Contributing](CONTRIBUTING.md)
+- [Developer Guide](docs/DEVELOPER-GUIDE.md)
+- [Agentic Guide](docs/agentic/README.md)
+- [API Reference](docs/agentic/api-reference.md)
+- [Evidence JSONL v1](docs/agentic/evidence-jsonl-v1.md)
+- [`.ruleoak.yml` v1](docs/agentic/ruleoak-yml-v1.md)
+- [Security and privacy](docs/agentic/security-privacy.md)
+- [Conformance kit](docs/agentic/conformance-kit.md)
+- [Release notes v2.2.0](docs/agentic/release-notes-v2.2.0.md)
 
-RuleOak Core is licensed under **AGPL-3.0-or-later**. See [LICENSE](LICENSE), [NOTICE](NOTICE), and [license FAQ](docs/license-faq.md).
 
----
+### High-risk agent action demos
 
-## Contributing
+RuleOak Core v2.2.0 includes public, local, deterministic demos for seven common risky agent actions: protected-folder delete, shell command, database mutation, dangerous MCP tool, external email-like action, poisoned retrieved context, and risky skill/plugin install.
 
-RuleOak is currently in a feedback-first contribution stage. Issues and Discussions are welcome. Pull requests may be restricted while contribution governance and licensing processes are finalized.
+```bash
+npm run agentic:high-risk-demos
+npm run test:high-risk-demos
+```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See `examples/high-risk-agent-actions/` and `docs/use-cases/high-risk-agent-action-demos.md`.
+
+## License
+
+RuleOak Core is open-source under **AGPL-3.0-or-later** for open-source projects, learning, evaluation, and compatible deployments. For enterprise production use, proprietary vertical application building, closed-source embedding, hosted service use, or compliance without copyleft restrictions, commercial licenses are available. Contact: **stanleysunsg@gmail.com**.
+
+Protocol schemas, fixtures, badge specifications, and conformance samples may be provided under MIT where marked so external projects can emit RuleOak-compatible evidence without adopting the full runtime.
+
+## What RuleOak is not
+
+RuleOak is not a legal/compliance certification, not an LLM provider, not a hosted monitoring system by default, and not a replacement for security review. It is a developer-first local governance and evidence layer for agent actions.
+
+## Release status
+
+Latest public release: **v2.2.0**.
+
+## Public core, private SafeDesk product boundary
+
+RuleOak Core is the public AGPL/commercial runtime for Agent Firewall, Flight Recorder, evidence, approval, replay, and adapters. Public examples include SafeDesk and consumer vertical demos with synthetic data.
+
+The full RuleOak SafeDesk consumer application, polished UI, installers, premium report templates, paid features, customer/license logic, and full vertical workflows are private/commercial product assets.
+
+This lets developers inspect and adopt the trust layer while keeping the packaged consumer product commercially sustainable.
+
+## Public repositories
+
+The public RuleOak ecosystem is split so developers can adopt the protocol and adapters without taking a dependency on the full AGPL runtime unless they need enforcement.
+
+| Repository | Version | License | Use when you need |
+|---|---:|---|---|
+| [`ruleoak-core`](https://github.com/ruleoak/ruleoak-core) | `2.2.0` | AGPL-3.0-or-later + commercial option | Agent Firewall, Flight Recorder, approval gates, dry-run, replay, runtime enforcement. |
+| [`ruleoak-protocol`](https://github.com/ruleoak/ruleoak-protocol) | `1.0.0` | MIT | Evidence JSONL, `.ruleoak.yml`, action envelopes, schemas, badges, and conformance fixtures. |
+| [`ruleoak-adapters-ts`](https://github.com/ruleoak/ruleoak-adapters-ts) | `1.0.0` | Apache-2.0 | TypeScript adapters for MCP-style, tool-calling, OpenAI Agents JS-style, LangChain.js-style, Vercel AI SDK-style, coding-agent, and OpenClaw-style workflows. |
+| [`ruleoak-py`](https://github.com/ruleoak/ruleoak-py) | `1.0.0` | Apache-2.0 | Python bridge/adapters for LangGraph and Python agentic workflows. |
+| [`ruleoak-openclaw-adapter`](https://github.com/ruleoak/ruleoak-openclaw-adapter) | `1.0.0` | MIT | Optional OpenClaw-style compatibility adapter. Not official or endorsed by OpenClaw maintainers. |
+| [`ruleoak-agentic-skills`](https://github.com/ruleoak/ruleoak-agentic-skills) | `1.0.0` | Apache-2.0 | Agentic skill manifests, safety scanner, permission summaries, and examples. |
+
+SafeDesk and the consumer/prosumer vertical apps are private/commercial products powered by RuleOak Core. They are not published as public source code.
+
+
+
+### High-risk agent action demos
+
+RuleOak Core v2.2.0 includes public, local, deterministic demos for seven common risky agent actions: protected-folder delete, shell command, database mutation, dangerous MCP tool, external email-like action, poisoned retrieved context, and risky skill/plugin install.
+
+```bash
+npm run agentic:high-risk-demos
+npm run test:high-risk-demos
+```
+
+See `examples/high-risk-agent-actions/` and `docs/use-cases/high-risk-agent-action-demos.md`.
+
+## License
+
+RuleOak Core is open source under the GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`).
+
+You may use, study, modify, and distribute RuleOak Core under the terms of the AGPL. If you modify or run RuleOak Core as part of a network service, the AGPL may require you to make the corresponding source code available under the same license.
+
+For closed-source embedding, proprietary vertical applications, hosted services, enterprise deployments, or use cases where AGPL obligations are not suitable, commercial licenses are available.
+
+Contact: stanleysunsg@gmail.com
