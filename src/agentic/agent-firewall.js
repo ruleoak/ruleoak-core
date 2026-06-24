@@ -28,6 +28,38 @@ function policyList(policy, camelName, snakeName) {
   ]; 
 }
 
+function patternSpecificity(pattern = "") {
+  const p = String(pattern || "").trim();
+  if (!p) return -1;
+  if (p === "*") return 0;
+  if (!p.includes("*")) return 1000 + p.split(".").filter(Boolean).length * 10 + p.length;
+  if (p.endsWith(".*")) return 500 + p.slice(0, -2).split(".").filter(Boolean).length * 10 + p.length;
+  return 100 + p.replace(/\*/g, "").length;
+}
+
+function patternMatchesAction(pattern = "", actionKey = "") {
+  const p = String(pattern || "").trim();
+  const key = String(actionKey || "").trim();
+  if (!p || !key) return false;
+  if (p === "*" || p === key) return true;
+  if (p.endsWith(".*")) return key === p.slice(0, -2) || key.startsWith(p.slice(0, -1));
+  if (p.includes("*")) {
+    const escaped = p.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
+    return new RegExp(`^${escaped}$`).test(key);
+  }
+  return false;
+}
+
+function matchingPatterns(patterns = [], keys = []) {
+  const matches = [];
+  for (const pattern of patterns || []) {
+    for (const key of keys) {
+      if (patternMatchesAction(pattern, key)) matches.push({ pattern, key, specificity: patternSpecificity(pattern) });
+    }
+  }
+  return matches.sort((a, b) => b.specificity - a.specificity || String(a.pattern).localeCompare(String(b.pattern)));
+}
+
 function decisionFromEffect(effect, action, risk, reason) {
   if (effect === "deny" || effect === "blocked") {
     return { decision: "deny", policyDecision: "blocked", allowedNow: false, approvalRequired: false, blocked: true, reason: reason || `risk ${risk} denied` };
@@ -78,29 +110,46 @@ export class AgentFirewall {
     const risk = this.classifyRisk(normalized);
     const actionKey = normalized.action || normalized.toolName;
     const operationKey = `${normalized.toolName}.${normalized.operation}`;
-    const blocked = new Set(policyList(this.policy, "blockedActions", "blocked_actions"));
-    const approvalRequired = new Set(policyList(this.policy, "approvalRequired", "approval_required"));
-    const allowed = new Set(policyList(this.policy, "allowedActions", "allowed_actions"));
-    const dryRunOnly = new Set(policyList(this.policy, "dryRunOnly", "dry_run_only"));
+    const blockedPatterns = policyList(this.policy, "blockedActions", "blocked_actions");
+    const approvalPatterns = policyList(this.policy, "approvalRequired", "approval_required");
+    const allowedPatterns = policyList(this.policy, "allowedActions", "allowed_actions");
+    const dryRunPatterns = policyList(this.policy, "dryRunOnly", "dry_run_only");
+    const keys = [operationKey, actionKey, normalized.toolName].filter(Boolean);
 
     let decision;
-    if (blocked.has(actionKey) || blocked.has(operationKey) || blocked.has(normalized.toolName)) {
-      decision = decisionFromEffect("deny", normalized, risk, "blocked by firewall policy");
-    } else if (dryRunOnly.has(actionKey) || dryRunOnly.has(operationKey) || dryRunOnly.has(normalized.toolName)) {
-      decision = decisionFromEffect("dry_run_only", normalized, risk, "restricted to dry-run by firewall policy");
-    } else if (approvalRequired.has(actionKey) || approvalRequired.has(operationKey) || approvalRequired.has(normalized.toolName)) {
-      decision = decisionFromEffect("approval_required", normalized, risk, "requires approval by firewall policy");
-    } else if (allowed.has(actionKey) || allowed.has(operationKey) || allowed.has(normalized.toolName)) {
-      decision = decisionFromEffect("allow", normalized, risk, "allowed by firewall policy");
+    const blocked = matchingPatterns(blockedPatterns, keys)[0];
+    if (blocked) {
+      decision = decisionFromEffect("deny", normalized, risk, `blocked by firewall policy: ${blocked.pattern}`);
     } else {
-      const explicit = this.policyEngine.evaluate(normalized.toolName, { action: normalized, risk });
-      decision = explicit.decision === "blocked"
-        ? decisionFromEffect("deny", normalized, risk, explicit.reason)
-        : explicit.decision === "approval_required"
-          ? decisionFromEffect("approval_required", normalized, risk, explicit.reason)
-          : explicit.decision === "allowed"
-            ? decisionFromEffect("allow", normalized, risk, explicit.reason)
-            : decisionFromEffect(this.riskClassifier.defaultEffectForRisk(risk), normalized, risk, `not declared in policy; default risk ${risk}`);
+      const dryRun = matchingPatterns(dryRunPatterns, keys)[0];
+      const allowed = matchingPatterns(allowedPatterns, keys)[0];
+      const approval = matchingPatterns(approvalPatterns, keys)[0];
+      if (dryRun) {
+        decision = decisionFromEffect("dry_run_only", normalized, risk, `restricted to dry-run by firewall policy: ${dryRun.pattern}`);
+      } else if (allowed && approval) {
+        if (allowed.specificity > approval.specificity) decision = decisionFromEffect("allow", normalized, risk, `most-specific allow policy matched: ${allowed.pattern}`);
+        else if (approval.specificity > allowed.specificity) decision = decisionFromEffect("approval_required", normalized, risk, `most-specific approval policy matched: ${approval.pattern}`);
+        else decision = decisionFromEffect("approval_required", normalized, risk, `same-specificity allow/approval conflict; approval required: ${approval.pattern}`);
+      } else if (allowed) {
+        decision = decisionFromEffect("allow", normalized, risk, `allowed by firewall policy: ${allowed.pattern}`);
+      } else if (approval) {
+        decision = decisionFromEffect("approval_required", normalized, risk, `requires approval by firewall policy: ${approval.pattern}`);
+      } else if (this.policy.defaultAction) {
+        const normalizedDefault = this.policy.defaultAction === "approval" || this.policy.defaultAction === "ask" ? "needs_approval" : this.policy.defaultAction;
+        decision = normalizedDefault === "allow" ? decisionFromEffect("allow", normalized, risk, "allowed by defaultAction")
+          : normalizedDefault === "deny" ? decisionFromEffect("deny", normalized, risk, "denied by defaultAction")
+          : normalizedDefault === "dry_run_only" ? decisionFromEffect("dry_run_only", normalized, risk, "dry-run by defaultAction")
+          : decisionFromEffect("approval_required", normalized, risk, "requires approval by defaultAction");
+      } else {
+        const explicit = this.policyEngine.evaluate(normalized.toolName, { action: normalized, risk });
+        decision = explicit.decision === "blocked"
+          ? decisionFromEffect("deny", normalized, risk, explicit.reason)
+          : explicit.decision === "approval_required"
+            ? decisionFromEffect("approval_required", normalized, risk, explicit.reason)
+            : explicit.decision === "allowed"
+              ? decisionFromEffect("allow", normalized, risk, explicit.reason)
+              : decisionFromEffect(this.riskClassifier.defaultEffectForRisk(risk), normalized, risk, `not declared in policy; default risk ${risk}`);
+      }
     }
 
     const record = {

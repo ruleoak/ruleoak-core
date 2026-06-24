@@ -151,3 +151,14 @@ You may use, study, modify, and distribute RuleOak Core under the terms of the A
 For closed-source embedding, proprietary vertical applications, hosted services, enterprise deployments, or use cases where AGPL obligations are not suitable, commercial licenses are available.
 
 Contact: hello@ruleoak.com
+
+## Policy precedence
+
+RuleOak Core follows the RuleOak policy model:
+
+1. `blockedActions` always wins.
+2. `allowedActions` and `approvalRequired` are compared by pattern specificity.
+3. If allow and approval match with the same specificity, `needs_approval` wins.
+4. `defaultAction` applies only when no explicit policy pattern matches.
+
+Exact action keys such as `filesystem.read` are more specific than namespace wildcards such as `filesystem.*`, and `*` is the least-specific catch-all.
